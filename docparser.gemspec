@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'docparser/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "DocParser"
+  spec.name          = "docparser"
   spec.version       = DocParser::VERSION
   spec.authors       = ["Jurriaan Pruis"]
   spec.email         = ["email@jurriaanpruis.nl"]
   spec.description   = %q{DocParser is a Ruby Gem for webscraping}
   spec.summary       = %q{DocParser is a Ruby Gem for webscraping}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/jurriaan/docparser"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
