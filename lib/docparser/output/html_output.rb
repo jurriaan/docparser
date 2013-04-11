@@ -1,0 +1,78 @@
+require 'cgi'
+module DocParser
+  # The XLSXOutput class generates an HTML file containing a table
+  # @see Output
+  class HTMLOutput < Output
+    # @!visibility private
+    HTMLHEADER = <<-EOS
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+   "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+  <html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>HTML output "#FILENAME#"</title>
+  <style type="text/css">
+  body {
+    font-family:"Helvetica Neue", Helvetica, Sans-Serif;
+    font-size:12px;
+  }
+  table {
+  border:1px solid #69c;
+  border-collapse:collapse;
+  font-size:12px;
+  text-align:left;
+  width:480px;
+  }
+  th {
+  border-bottom:1px dashed #69c;
+  color:#039;
+  font-size:14px;
+  font-weight:normal;
+  padding:12px 17px;
+  }
+  td {
+  color:#669;
+  padding:7px 17px;
+  white-space: pre;
+  }
+  tbody tr:hover td {
+  background:#d0dafd;
+  color:#339;
+  }
+  tbody tr:nth-child(even) {
+    background:#e0eaff;
+  }
+  </style>
+  </head>
+  <body>
+  <table>
+  EOS
+    # @!visibility private
+    HTMLFOOTER = <<-EOS
+    </tbody>
+    </table>
+    <p>#COUNT# rows</p>
+    </body>
+    </html>
+    EOS
+    def open_file
+      @file << HTMLHEADER.gsub('#FILENAME#', @filename)
+    end
+
+    def header
+      @file << '<thead><tr>'
+      @file << @header.map { |f| '<th>' + f + '</th>' }.join
+      @file << "</tr></thead>\n<tbody>\n"
+    end
+
+    def write_row(row)
+      @file << '<tr>'
+      @file << row.map { |f| '<td>' + CGI.escapeHTML(f.to_s) + '</td>' }.join
+      @file << "</tr>\n"
+    end
+
+    def footer
+      @file << HTMLFOOTER.gsub('#COUNT#', @rowcount.to_s)
+    end
+  end
+end

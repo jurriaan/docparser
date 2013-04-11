@@ -1,0 +1,79 @@
+require 'set'
+module DocParser
+  # The Document class loads and parses the files.
+  # @see Parser
+  # @see Output
+  class Document
+    attr_reader :filename, :doc, :encoding, :results
+    def initialize(filename, encoding: 'utf-8', parser: nil)
+      if encoding == 'utf-8'
+        encodingstring = 'r:utf-8'
+      else
+        encodingstring = "r:#{encoding}:utf-8"
+      end
+
+      open(filename, encodingstring) do |f|
+        @doc = Nokogiri::HTML(f)
+      end
+
+      @encoding = encoding
+      @parser = parser
+      @filename = filename
+      @results = Array.new(@parser.outputs.length) { [] }
+    end
+
+    # Adds a row to an output
+    def add_row(*row, output: 0)
+      output = @parser.outputs.index(output) if output.is_a? Output
+      results[output] << row.flatten
+    end
+
+    # Extracts the document title
+    # @return [String] the title of the document
+    def title
+      @title ||= xpath_content('//head/title')
+    end
+
+    # @return [String] the source of the document
+    def html
+      @html ||= @doc.inner_html #TODO: ??
+    end
+
+    # Executes a xpath query
+    def xpath(query)
+      res = @doc.search(query)
+      res.each { |el| yield el } if block_given?
+    end
+
+    # Executes a xpath query and returns the content
+    # @return [String] the content of the HTML node
+    def xpath_content(query)
+      first = @doc.search(query).first
+      if first.nil?
+        nil
+      else
+        first.content
+      end
+    end
+
+    # Matches the HTML source using a regular expression
+    def regexp(regexp)
+      html.match(regexp) rescue nil
+    end
+
+    # Parses the document
+    # @return [Array] containing the parse results
+    def parse!(&block)
+      instance_exec(&block)
+      results
+    end
+
+    # @!visibility private
+    def inspect
+      "<Document file:'#{@filename}'>"
+    end
+
+    alias :css :xpath
+    alias :css_content :xpath_content
+  end
+end
