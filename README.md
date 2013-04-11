@@ -1,5 +1,7 @@
 # DocParser
 
+Docs: http://rubydoc.info/github/jurriaan/docparser/
+
 DocParser is a web scraping/screen scraping tool.
 You can use it to easily scrape web sites.
 
