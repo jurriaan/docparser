@@ -49,4 +49,4 @@ See example.rb
 
 ## Contributors
 
-- Jurriaan Pruis
+- [Jurriaan Pruis](https://github.com/jurriaan)
