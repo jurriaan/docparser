@@ -14,9 +14,9 @@ module DocParser
       @logger = Log4r::Logger.new('docparser:document')
       @logger.debug { "Parsing #{filename}" }
       open(filename, encodingstring) do |f|
+        @logger.warn "#{filename} is empty" if f.eof?
         @doc = Nokogiri(f)
       end
-      @logger.warn "#{filename} is empty" if File.size(filename) == 0
       @encoding = encoding
       @parser = parser
       @filename = filename
