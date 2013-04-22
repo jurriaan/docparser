@@ -1,10 +1,11 @@
 # DocParser
 
-Rubygem: [docparser](http://rubygems.org/gems/docparser)
-Docs: http://rubydoc.info/github/jurriaan/docparser/
-
 DocParser is a web scraping/screen scraping tool.
+
 You can use it to easily scrape web sites.
+
+The gem is called [docparser](http://rubygems.org/gems/docparser).
+You can find the documentation [here](http://rubydoc.info/github/jurriaan/docparser/).
 
 ## Features
 
@@ -41,6 +42,7 @@ See example.rb
 ## Todo
 
 - Tests
+- Better examples
 
 ## Contributing
 
