@@ -1,7 +1,7 @@
 require 'json'
 module DocParser
   # The JSONOutput class generates a JSON file containing all rows as seperate
-  # JSON documents
+  # Array elements
   # @see Output
   class JSONOutput < Output
     # @!visibility private

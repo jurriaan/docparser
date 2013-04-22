@@ -1,5 +1,6 @@
 # DocParser
 
+Rubygem: [docparser](http://rubygems.org/gems/docparser)
 Docs: http://rubydoc.info/github/jurriaan/docparser/
 
 DocParser is a web scraping/screen scraping tool.
@@ -10,12 +11,14 @@ You can use it to easily scrape web sites.
 - XPath and CSS support through Nokogiri
 - Support for loading of URLs throug open-uri
 - Support for parallel processing of the documents
-- 5 Output formats:
+- 6 Output formats:
   * CSV
   * XLSX
   * HTML
   * YAML
+  * JSON
   * Screen (for debugging and development)
+  * And more! (easy to extend)
 
 ## Installation
 
