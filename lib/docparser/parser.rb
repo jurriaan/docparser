@@ -1,4 +1,4 @@
-$:.unshift __dir__
+$LOAD_PATH.unshift __dir__
 require 'rubygems'
 require 'bundler/setup'
 require 'version'
@@ -8,6 +8,8 @@ require 'nokogiri'
 require 'open-uri'
 require 'parallel'
 require 'set'
+require 'log4r'
+require 'log4r/formatter/patternformatter'
 require 'output/screen_output.rb'
 require 'output/csv_output.rb'
 require 'output/html_output.rb'
@@ -15,7 +17,18 @@ require 'output/xlsx_output.rb'
 require 'output/yaml_output.rb'
 require 'output/json_output.rb'
 require 'output/multi_output.rb'
-# {include:file:README.md}
+
+Log4r.define_levels(*Log4r::Log4rConfig::LogLevels)
+logger = Log4r::Logger.new('docparser')
+output = Log4r::Outputter.stderr
+output.formatter = Log4r::PatternFormatter.new(pattern: '[%l %C] %d :: %m')
+logger.outputters = output
+logger.level = Log4r::INFO
+logger = nil
+output = nil
+
+# The DocParser namespace
+# See README.md for information on using DocParser
 module DocParser
   # The main parser class. This is the class you'll use to create your parser
   # The real work happens in the Document class
@@ -35,10 +48,13 @@ module DocParser
     def initialize(files: [], quiet: false, encoding: 'utf-8', parallel: true,
                    output: ScreenOutput.new, range: nil,
                    num_processes: Parallel.processor_count + 1)
-      @quiet = quiet
       @parallel = parallel
       @num_processes = num_processes
       @encoding = encoding
+      if quiet
+        Log4r::Logger['docparser'].level = Log4r::ERROR
+      end
+
       if output.is_a? Output
         @outputs = []
         @outputs << output
@@ -52,26 +68,30 @@ module DocParser
       else
         files
       end
-      log 'DocParser loaded..'
-      log "#{@files.length} files loaded (encoding: #{@encoding})"
+
+
+      @logger =  Log4r::Logger.new('docparser::parser')
+
+      @logger.info "DocParser v#{VERSION}"
+      @logger.info "#{@files.length} files loaded (encoding: #{@encoding})"
+
     end
 
     #
     # Parses the `files`
     #
     def parse!(&block)
-      log "Parsing #{@files.length} files."
+      @logger.info "Parsing #{@files.length} files."
       start_time = Time.now
       resultsets = Array.new(@outputs.length) { Set.new }
 
       if @parallel && @num_processes > 1
-        log "Starting #{@num_processes} processes"
+        @logger.info "Starting #{@num_processes} processes"
         Parallel.map(@files, in_processes: @num_processes) do |file|
           Document.new(file, encoding: @encoding, parser: self).parse!(&block)
         end.each do |result|
           result.each_with_index { |set, index| resultsets[index].merge(set) }
         end
-        log 'Parallel processing finished, writing results..'
       else
         @files.each do |file|
           doc = Document.new(file, encoding: @encoding, parser: self)
@@ -81,7 +101,7 @@ module DocParser
         end
       end
 
-      log "\nSummary\n======="
+      @logger.info 'Processing finished'
 
       @outputs.each_with_index do |output, index|
         resultsets[index].each do |row|
@@ -89,17 +109,10 @@ module DocParser
         end
         resultsets[index] = nil
         output.close
-        log output.summary
       end
 
-      log ''
-      log 'Done processing in %.2fs.' % (Time.now - start_time)
-    end
 
-    private
-
-    def log(str)
-      puts str unless @quiet
+      @logger.info sprintf('Done processing in %.2fs.', Time.now - start_time)
     end
   end
 end

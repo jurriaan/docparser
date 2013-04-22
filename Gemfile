@@ -6,4 +6,5 @@ gem 'parallel'
 gem 'axlsx'
 gem 'terminal-table'
 gem 'pageme'
-gem "json"
+gem 'json'
+gem 'log4r'

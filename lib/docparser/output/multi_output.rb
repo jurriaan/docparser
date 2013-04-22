@@ -42,9 +42,5 @@ module DocParser
     def close
       @outputs.each { |out|  out.close }
     end
-
-    def summary
-      @outputs.map { |out|  out.summary }.join("\n")
-    end
   end
 end

@@ -11,11 +11,12 @@ module DocParser
       else
         encodingstring = "r:#{encoding}:utf-8"
       end
-
+      @logger = Log4r::Logger.new('docparser:document')
+      @logger.debug { "Parsing #{filename}" }
       open(filename, encodingstring) do |f|
-        @doc = Nokogiri::HTML(f)
+        @doc = Nokogiri(f)
       end
-
+      @logger.warn "#{filename} is empty" if File.size(filename) == 0
       @encoding = encoding
       @parser = parser
       @filename = filename
@@ -25,6 +26,7 @@ module DocParser
     # Adds a row to an output
     def add_row(*row, output: 0)
       output = @parser.outputs.index(output) if output.is_a? Output
+      @logger.debug { "#{filename}: Adding row #{row.flatten.to_s}" }
       results[output] << row.flatten
     end
 
@@ -73,7 +75,7 @@ module DocParser
       "<Document file:'#{@filename}'>"
     end
 
-    alias :css :xpath
-    alias :css_content :xpath_content
+    alias_method :css, :xpath
+    alias_method :css_content, :xpath_content
   end
 end

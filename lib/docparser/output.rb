@@ -11,6 +11,8 @@ module DocParser
       @filename = filename
       raise ArgumentError, 'Please specify a filename' if filename.empty?
       @file = open filename, 'w'
+      classname = self.class.name.split('::').last
+      @logger = Log4r::Logger.new("docparser::output::#{classname}")
       open_file
     end
 
@@ -30,6 +32,9 @@ module DocParser
     def close
       footer
       @file.close unless @file.closed?
+      @logger.info "Finished writing"
+      size = File.size(@filename) / 1024.0
+      @logger.info sprintf("%s: %d rows, %.2f KiB", @filename, @rowcount, size)
     end
 
     # Called after the file is opened
@@ -49,14 +54,6 @@ module DocParser
 
     # Called before closing the file
     def footer
-    end
-
-    # Displays information about the output
-    # @return [String] containing number of rows and file size
-    def summary
-      "%s:\t%d rows, %9.2f KiB" % [@filename,
-                                   @rowcount,
-                                   File.size(@filename) / 1024.0]
     end
   end
 end
