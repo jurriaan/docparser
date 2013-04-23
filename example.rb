@@ -3,7 +3,8 @@
 # (C) 2013 Jurriaan Pruis
 #
 
-require 'docparser'
+require File.expand_path('lib/docparser.rb', __dir__)
+
 include DocParser
 output = HTMLOutput.new(filename: 'hackaday.html')
 output.header = 'Title', 'Author', 'Publication date', 'URL', 'Summary'
