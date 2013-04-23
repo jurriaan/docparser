@@ -8,3 +8,8 @@ gem 'terminal-table'
 gem 'pageme'
 gem 'json'
 gem 'log4r'
+
+group :test do
+  gem 'rake'
+  gem 'rubocop'
+end
