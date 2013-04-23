@@ -1,5 +1,7 @@
 # DocParser
 
+[![Build Status](https://travis-ci.org/jurriaan/docparser.png?branch=master)](https://travis-ci.org/jurriaan/docparser)
+
 DocParser is a web scraping/screen scraping tool.
 
 You can use it to easily scrape web sites.
