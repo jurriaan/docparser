@@ -35,7 +35,7 @@ module DocParser
   # @see Document
   class Parser
     # @!visibility private
-    attr_reader :outputs
+    attr_reader :outputs, :files
 
     # Creates a new parser instance
     # @param files [Array] An array containing URLs or paths to files
