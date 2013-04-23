@@ -18,7 +18,11 @@ module DocParser
         @file << ','
       end
       0.upto(@header.length - 1) do |counter|
-        @doc[@header[counter]] = row[counter] rescue ''
+        if row.has_key? counter
+          @doc[@header[counter]] = row[counter]
+        else
+          @doc[@header[counter]] = ''
+        end
       end
       @file << JSON.dump(@doc)
     end

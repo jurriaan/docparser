@@ -48,14 +48,11 @@ module DocParser
     def initialize(files: [], quiet: false, encoding: 'utf-8', parallel: true,
                    output: ScreenOutput.new, range: nil,
                    num_processes: Parallel.processor_count + 1)
-      @parallel = parallel
-      @num_processes = num_processes
+      @num_processes = parallel ? num_processes : 1
+      @files = range ? files[range] : files
       @encoding = encoding
-      if quiet
-        Log4r::Logger['docparser'].level = Log4r::ERROR
-      else
-        Log4r::Logger['docparser'].level = Log4r::INFO
-      end
+
+      Log4r::Logger['docparser'].level = quiet ? Log4r::ERROR : Log4r::INFO
 
       if output.is_a? Output
         @outputs = []
@@ -65,18 +62,12 @@ module DocParser
       else
         raise ArgumentError, 'No outputs specified'
       end
-      @files = if range
-        files[range]
-      else
-        files
-      end
 
+      @resultsets = Array.new(@outputs.length) { Set.new }
 
       @logger =  Log4r::Logger.new('docparser::parser')
-
       @logger.info "DocParser v#{VERSION}"
       @logger.info "#{@files.length} files loaded (encoding: #{@encoding})"
-
     end
 
     #
@@ -85,36 +76,45 @@ module DocParser
     def parse!(&block)
       @logger.info "Parsing #{@files.length} files."
       start_time = Time.now
-      resultsets = Array.new(@outputs.length) { Set.new }
 
-      if @parallel && @num_processes > 1
+      if @num_processes > 1
         @logger.info "Starting #{@num_processes} processes"
         Parallel.map(@files, in_processes: @num_processes) do |file|
-          Document.new(file, encoding: @encoding, parser: self).parse!(&block)
+          parse_doc(file, &block)
         end.each do |result|
-          result.each_with_index { |set, index| resultsets[index].merge(set) }
+          result.each_with_index { |set, index| @resultsets[index].merge(set) }
         end
       else
         @files.each do |file|
-          doc = Document.new(file, encoding: @encoding, parser: self)
-          doc.parse!(&block).each_with_index do |set, index|
-            resultsets[index].merge(set)
+          parse_doc(file, &block).each_with_index do |set, index|
+            @resultsets[index].merge(set)
           end
         end
       end
 
       @logger.info 'Processing finished'
 
-      @outputs.each_with_index do |output, index|
-        resultsets[index].each do |row|
-          output.add_row row
-        end
-        resultsets[index] = nil
-        output.close
-      end
-
+      write_to_outputs
 
       @logger.info sprintf('Done processing in %.2fs.', Time.now - start_time)
+    end
+  end
+
+  private
+
+  def parse_doc(file, &block)
+    doc = Document.new(file, encoding: @encoding, parser: self)
+    doc.parse!(&block)
+  end
+
+  def write_to_outputs
+    @logger.info 'Writing data..'
+    @outputs.each_with_index do |output, index|
+      @resultsets[index].each do |row|
+        output.add_row row
+      end
+      @resultsets[index] = nil
+      output.close
     end
   end
 end

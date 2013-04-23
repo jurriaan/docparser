@@ -8,7 +8,11 @@ module DocParser
     def write_row(row)
       @doc ||= {}
       0.upto(@header.length - 1) do |counter|
-        @doc[@header[counter]] = row[counter] rescue ''
+        if row.has_key? counter
+          @doc[@header[counter]] = row[counter]
+        else
+          @doc[@header[counter]] = ''
+        end
       end
       YAML.dump @doc, @file
     end
