@@ -53,6 +53,8 @@ module DocParser
       @encoding = encoding
       if quiet
         Log4r::Logger['docparser'].level = Log4r::ERROR
+      else
+        Log4r::Logger['docparser'].level = Log4r::INFO
       end
 
       if output.is_a? Output
