@@ -5,17 +5,18 @@ module DocParser
   # @see Output
   class Document
     attr_reader :filename, :doc, :encoding, :results
-    def initialize(filename, encoding: 'utf-8', parser: nil)
+    def initialize(filename: nil, encoding: 'utf-8', parser: nil)
       if encoding == 'utf-8'
         encodingstring = 'r:utf-8'
       else
         encodingstring = "r:#{encoding}:utf-8"
       end
-      @logger = Log4r::Logger.new('docparser:document')
+      @logger = Log4r::Logger.new('docparser::document')
       @logger.debug { "Parsing #{filename}" }
       open(filename, encodingstring) do |f|
-        @logger.warn "#{filename} is empty" if f.eof?
-        @doc = Nokogiri(f)
+        @html = f.read
+        @logger.warn "#{filename} is empty" if @html.empty?
+        @doc = Nokogiri(@html)
       end
       @encoding = encoding
       @parser = parser
@@ -38,13 +39,17 @@ module DocParser
 
     # @return [String] the source of the document
     def html
-      @html ||= @doc.inner_html #TODO: ??
+      @html
     end
 
     # Executes a xpath query
     def xpath(query)
       res = @doc.search(query)
-      res.each { |el| yield el } if block_given?
+      if block_given?
+        res.each { |el| yield el }
+      else
+        res
+      end
     end
 
     # Executes a xpath query and returns the content
