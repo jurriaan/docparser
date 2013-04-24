@@ -17,10 +17,11 @@ require 'output/xlsx_output.rb'
 require 'output/yaml_output.rb'
 require 'output/json_output.rb'
 require 'output/multi_output.rb'
+require 'output/nil_output.rb'
 
 Log4r.define_levels(*Log4r::Log4rConfig::LogLevels)
 logger = Log4r::Logger.new('docparser')
-output = Log4r::Outputter.stderr
+output = Log4r::StdoutOutputter.new('docparser')
 output.formatter = Log4r::PatternFormatter.new(pattern: '[%l %C] %d :: %m')
 logger.outputters = output
 logger.level = Log4r::INFO
@@ -35,7 +36,7 @@ module DocParser
   # @see Document
   class Parser
     # @!visibility private
-    attr_reader :outputs, :files
+    attr_reader :outputs, :files, :num_processes, :encoding
 
     # Creates a new parser instance
     # @param files [Array] An array containing URLs or paths to files
@@ -98,23 +99,24 @@ module DocParser
 
       @logger.info sprintf('Done processing in %.2fs.', Time.now - start_time)
     end
-  end
 
-  private
+    private
 
-  def parse_doc(file, &block)
-    doc = Document.new(file, encoding: @encoding, parser: self)
-    doc.parse!(&block)
-  end
-
-  def write_to_outputs
-    @logger.info 'Writing data..'
-    @outputs.each_with_index do |output, index|
-      @resultsets[index].each do |row|
-        output.add_row row
-      end
-      @resultsets[index] = nil
-      output.close
+    def parse_doc(file, &block)
+      doc = Document.new(filename: file, encoding: @encoding, parser: self)
+      doc.parse!(&block)
     end
+
+    def write_to_outputs
+      @logger.info 'Writing data..'
+      @outputs.each_with_index do |output, index|
+        @resultsets[index].each do |row|
+          output.add_row row
+        end
+        @resultsets[index] = nil
+        output.close
+      end
+    end
+
   end
 end
