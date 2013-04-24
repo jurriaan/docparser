@@ -1,7 +1,7 @@
 require 'terminal-table'
 require 'pageme'
 module DocParser
-  # This Output is can be used for debugging purposes.
+  # This Output can be used for debugging purposes.
 
   # It pipes all rows through a pager
   # @see Output

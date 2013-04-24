@@ -18,7 +18,7 @@ module DocParser
         @file << ','
       end
       0.upto(@header.length - 1) do |counter|
-        if row.has_key? counter
+        if row.length > counter
           @doc[@header[counter]] = row[counter]
         else
           @doc[@header[counter]] = ''
@@ -27,7 +27,7 @@ module DocParser
       @file << JSON.dump(@doc)
     end
 
-    def close
+    def footer
       @file << ']'
     end
   end

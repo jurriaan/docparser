@@ -20,7 +20,7 @@ module DocParser
       @sheet.add_row row
     end
 
-    def close
+    def footer
       @sheet.add_table "A1:#{@sheet.cells.last.r}", name: 'Data'
       @package.serialize @filename
     end

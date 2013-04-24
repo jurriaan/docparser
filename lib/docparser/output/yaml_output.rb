@@ -8,7 +8,7 @@ module DocParser
     def write_row(row)
       @doc ||= {}
       0.upto(@header.length - 1) do |counter|
-        if row.has_key? counter
+        if row.length > counter
           @doc[@header[counter]] = row[counter]
         else
           @doc[@header[counter]] = ''

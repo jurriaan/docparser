@@ -24,7 +24,7 @@ module DocParser
       @outputs << HTMLOutput.new(htmloptions)
       @outputs << YAMLOutput.new(yamloptions)
       @outputs << XLSXOutput.new(xlsxoptions)
-      @outputs << XLSXOutput.new(jsonoptions)
+      @outputs << JSONOutput.new(jsonoptions)
     end
 
     def header=(row)
