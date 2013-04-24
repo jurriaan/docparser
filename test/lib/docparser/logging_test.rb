@@ -14,6 +14,6 @@ describe DocParser do
   it 'should log to the correct output' do
     outputters = Log4r::Logger['docparser'].outputters
     outputters.length.must_equal 1
-    outputters.first.must_be_instance_of Log4r::StderrOutputter
+    outputters.first.must_be_instance_of Log4r::StdoutOutputter
   end
 end

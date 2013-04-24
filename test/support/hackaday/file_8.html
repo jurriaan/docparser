@@ -1,0 +1,717 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!--
+	generated in 0.430 seconds
+	67348 bytes batcached for 300 seconds
+-->
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Hack a Day — Fresh hacks every day</title>
+<meta name="description" content="Fresh hacks every day" />
+<meta name="robots" content="noodp,noydir" />
+<link rel="Shortcut Icon" href="http://s1.wp.com/wp-content/themes/vip/hackaday2/images/favicon.ico?m=1353160633g" type="image/x-icon" />
+<link rel="stylesheet" href="http://s1.wp.com/wp-content/themes/vip/hackaday2/style.css?m=1363789849g" type="text/css" media="screen" />
+
+<meta name="description" content="Fresh hacks every day" />
+<meta name="keywords" content="hall of fame, fpga, nook hacks, internet hacks, marijuana hacks, network hacks, high voltage hacks, palm pre hacks, blackberry hacks, podcasts, virtual reality, drone hacks, lockpicking hacks, interviews, kindle hacks, phone hacks, weekly roundup, reviews, firefox hacks, g1 hacks" />
+		<script src='http://r-login.wordpress.com/remote-login.php?action=js&amp;host=hackaday.com&amp;id=4779443&amp;t=1366801132&amp;back=hackaday.com%2Fpage%2F8%2F' type="text/javascript"></script>
+		<script type="text/javascript">
+		/* <![CDATA[ */
+			if ( 'function' === typeof WPRemoteLogin ) {
+				document.cookie = "wordpress_test_cookie=test; path=/";
+				if ( document.cookie.match( /(;|^)\s*wordpress_test_cookie\=/ ) ) {
+					WPRemoteLogin();
+				}
+			}
+		/* ]]> */
+		</script>
+		<link rel="alternate" type="application/rss+xml" title="Hack a Day &raquo; Feed" href="http://feeds2.feedburner.com/hackaday/LgoM" />
+<link rel="alternate" type="application/rss+xml" title="Hack a Day &raquo; Comments Feed" href="http://hackaday.com/comments/feed/" />
+<script type="text/javascript">
+/* <![CDATA[ */
+function addLoadEvent(func){var oldonload=window.onload;if(typeof window.onload!='function'){window.onload=func;}else{window.onload=function(){oldonload();func();}}}
+/* ]]> */
+</script>
+<link rel="canonical" href="http://hackaday.com/" />
+<link rel='stylesheet' id='all-css-0' href='http://s0.wp.com/_static/??-eJzTLy/QTc7PK0nNK9HPLdUtyClNz8wr1s/JzE4t1s9KLSlITM7WBfP0kouLdfSxKy/ILy7RTctJzCzSLy6pzEklVm1GYlFmXjqMxtBVkpGaC3RGhol+ek5+UmIOSIF9rq2hsZmZuYmxqbFlFgANUUYu' type='text/css' media='all' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var SafeCommentsAjax = {"ajaxurl":"http:\/\/hackaday.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://s0.wp.com/_static/??-eJyFz0sKAjEMBuALWUsZpjvxLKXGmjp92KQz6umNogtRFAJZ5Et+opeqMPup74B0lDp1aJdnW0da6V9AJQzNMbygL5kh893VQpyAyIVv0/cYzDPC8pdF4Or8UTUgvH5c5QNInp6x6jr1gJk0uT2IrqWxsJSEPX5w0Z1lfZs2ZrB2NIOxY7wBpfljQw=='></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://hackadaycom.wordpress.com/xmlrpc.php?rsd" />
+<link rel="shortcut icon" type="image/x-icon" href="http://0.gravatar.com/blavatar/4f3e6b6daa090af416a1ba595885efd1?s=16" sizes="16x16" />
+<link rel="icon" type="image/x-icon" href="http://0.gravatar.com/blavatar/4f3e6b6daa090af416a1ba595885efd1?s=16" sizes="16x16" />
+<link rel="apple-touch-icon-precomposed" href="http://1.gravatar.com/blavatar/5560f98f805877b0e332f191cb9e0af3?s=114" />
+<link rel='openid.server' href='http://hackadaycom.wordpress.com/?openidserver=1' />
+<link rel='openid.delegate' href='http://hackadaycom.wordpress.com/' />
+<link rel="search" type="application/opensearchdescription+xml" href="http://hackaday.com/osd.xml" title="Hack a Day" />
+<link rel="search" type="application/opensearchdescription+xml" href="http://wordpress.com/opensearch.xml" title="WordPress.com" />
+		<style>
+		/* <![CDATA[ */
+		/* Block: reblog */
+		
+		.reblog-from img                   { margin: 0 10px 0 0; vertical-align: middle; padding: 0; border: 0; }
+		.reblogger-note img.avatar         { float: left; padding: 0; border: 0; }
+		.reblogger-note-content            { margin: 0 0 20px; }
+		.reblog-post .wpcom-enhanced-excerpt-content { border-left: 3px solid #eee; padding-left: 15px; }
+		.reblog-post ul.thumb-list         { display: block; list-style: none; margin: 2px 0; padding: 0; clear: both; }
+		.reblog-post ul.thumb-list li      { display: inline; margin: 0; padding: 0 1px; border: 0; }
+		.reblog-post ul.thumb-list li a    { margin: 0; padding: 0; border: 0; }
+		.reblog-post ul.thumb-list li img  { margin: 0; padding: 0; border: 0; }
+		
+		.reblog-post .wpcom-enhanced-excerpt { clear: both; }
+		
+		.reblog-post .wpcom-enhanced-excerpt address,
+		.reblog-post .wpcom-enhanced-excerpt li,
+		.reblog-post .wpcom-enhanced-excerpt h1,
+		.reblog-post .wpcom-enhanced-excerpt h2,
+		.reblog-post .wpcom-enhanced-excerpt h3,
+		.reblog-post .wpcom-enhanced-excerpt h4,
+		.reblog-post .wpcom-enhanced-excerpt h5,
+		.reblog-post .wpcom-enhanced-excerpt h6,
+		.reblog-post .wpcom-enhanced-excerpt p { font-size: 100% !important; }
+		
+		.reblog-post .wpcom-enhanced-excerpt blockquote,
+		.reblog-post .wpcom-enhanced-excerpt pre,
+		.reblog-post .wpcom-enhanced-excerpt code,
+		.reblog-post .wpcom-enhanced-excerpt q { font-size: 98% !important; }
+		
+
+		/* ]]> */
+		</style>
+		
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+		<style>
+			.wpcom-related-posts ul li {
+				list-style-type: none;
+				display: inline-block;
+			}
+		</style>
+			<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<style type="text/css">
+			.recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none !important;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+		</style>
+		<meta name="application-name" content="Hack a Day" /><meta name="msapplication-window" content="width=device-width;height=device-height" /><meta name="msapplication-tooltip" content="Fresh hacks every day" /><meta name="msapplication-task" content="name=Subscribe;action-uri=http://feeds2.feedburner.com/hackaday/LgoM;icon-uri=http://0.gravatar.com/blavatar/4f3e6b6daa090af416a1ba595885efd1?s=16" /><style id="syntaxhighlighteranchor"></style>
+
+<script>jQuery(document).ready(function($) { 
+	$("cswap li a").click(function() { 
+		$("link").attr("href",$(this).attr('rel'));
+		return false;
+	});
+});</script>
+<meta name="google-site-verification" content="v0_F4q2HixEv6wrQCEKBEbp2Wuj0oI9ywwaN6aoV0JE" />
+</head>
+<body class="home blog paged paged-8 typekit-enabled header-image content-sidebar highlander-enabled highlander-light">
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="wrap">
+<div id="header"><div class="wrap"><div id="title-area"><h1 id="title"><a href="http://hackaday.com/" title="Hack a Day">Hack a Day</a></h1><p id="description">Fresh hacks every day</p></div><!-- end #title-area --><div class="widget-area"><div = "leaderboard">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1812638130783065";
+/* Hackaday, 728x90, created 4/26/08, Leaderboard */
+google_ad_slot = "4036713767";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<div id="adslice">
+
+	<script type="text/javascript"><!--
+	google_ad_client = "pub-1812638130783065";
+	/* Hackaday, 728x15, created 4/26/08, AdSlice */
+	google_ad_slot = "0246324944";
+	google_ad_width = 728;
+	google_ad_height = 15;
+	//-->
+	</script>
+
+	<script type="text/javascript"
+	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+	
+</div></div><!-- end .widget-area --></div><!-- end .wrap --></div><!--end #header--><div id="nav"><div class="wrap"><ul id="menu-main" class="menu menu-primary superfish"><li id="menu-item-90201" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90201"><a href="http://www.hackaday.com">Home</a></li>
+<li id="menu-item-77211" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-77211"><a href="http://hackaday.com/contact-hack-a-day/">Submit a tip</a></li>
+<li id="menu-item-90210" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90210"><a href="http://forums.hackaday.com">forums</a></li>
+<li id="menu-item-94591" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-94591"><a href="http://hackaday.com/hackaday-staff/">Hackaday Staff</a></li>
+<li class="right search">
+		<form method="get" class="searchform" action="http://hackaday.com/" >
+			
+			<input type="text" value="Search this website &hellip;" name="s" class="s" onfocus="if (this.value == 'Search this website &hellip;') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search this website &hellip;';}" />
+			<input type="submit" class="searchsubmit" value="Search" />
+		</form>
+	</li></ul></div><!-- end .wrap --></div><div id="inner"><div class="wrap">	<div id="content-sidebar-wrap">
+				<div id="content" class="hfeed">
+				<div class="post-97470 post type-post status-publish format-standard hentry category-news tag-rbcreation tag-redbull">
+
+				<h2 class="entry-title"><a href="http://hackaday.com/2013/04/09/the-redbull-creation-contest-begins/" title="The RedBull creation contest&nbsp;begins!" rel="bookmark">The RedBull creation contest&nbsp;begins!</a></h2>
+		
+		<div class="post-info"><span class="date published time" title="2013-04-09T09:22:51+00:00">April 9, 2013</span>  By <span class="author vcard"><span class="fn"><a href="http://hackaday.com/author/calebkraft/" class="fn n" title="Caleb Kraft" rel="author">Caleb Kraft</a></span></span> <span class="post-comments"><a href="http://hackaday.com/2013/04/09/the-redbull-creation-contest-begins/#comments">22 Comments</a></span> </div>		<div class="entry-content">
+			<p><span class='embed-youtube' style='text-align:center; display: block;'><iframe class='youtube-player' type='text/html' width='470' height='295' src='http://www.youtube.com/embed/D9WPZjcEOdI?version=3&#038;rel=1&#038;fs=1&#038;showsearch=0&#038;showinfo=1&#038;iv_load_policy=1&#038;wmode=transparent' frameborder='0'></iframe></span></p>
+<p>The <a href="http://creation.redbullusa.com/about/">RedBull Creation contest begins today</a>.</p>
+<p>Last year, we had a <a href="http://hackaday.com/2012/08/01/hackaday-has-won-1st-place-in-the-redbull-creation-contest/">ton of fun competing in the RedBull creation contest</a>. The idea is that RedBull hosts this big contest where teams compete by making awesome stuff. Finalists get to take a trip to Brooklyn for a build off extravaganza. Frankly, we think this is how ALL advertising budgets should be spent.</p>
+<p>This year, however, we will not be participating as a team in the contest. We&#8217;ll be helping judge it!</p>
+<p><strong>The hardware:</strong></p>
+<p>In previous years, RedBull has sent out some custom hardware for people to use. Last year it was basically an Arduino on a custom PCB with some cool touch sensors. This year, they&#8217;ve sent out this multi purpose LED controller shield that looks pretty impressive.</p>
+<p>You can see all the details along with a breakdown of the board from the creator himself, after the break.</p>
+<p> <a href="http://hackaday.com/2013/04/09/the-redbull-creation-contest-begins/#more-97470" class="more-link">[Read more...]</a></p>
+<div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"></div>		</div><!-- end .entry-content -->
+		<div class="post-meta"><span class="categories">Filed Under: <a href="http://hackaday.com/category/news/" title="View all posts in news" rel="category tag">news</a></span>  <span class="tags">Tagged With: <a href="http://hackaday.com/tag/rbcreation/" rel="tag">rbcreation</a>, <a href="http://hackaday.com/tag/redbull/" rel="tag">redbull</a></span> </div>
+	</div><!-- end .postclass -->
+		<div class="post-97437 post type-post status-publish format-standard hentry category-chemistry-hacks tag-graphene">
+
+				<h2 class="entry-title"><a href="http://hackaday.com/2013/04/09/synthesizing-graphene-in-your-basement-laboratory/" title="Synthesizing graphene in your basement&nbsp;laboratory" rel="bookmark">Synthesizing graphene in your basement&nbsp;laboratory</a></h2>
+		
+		<div class="post-info"><span class="date published time" title="2013-04-09T06:01:01+00:00">April 9, 2013</span>  By <span class="author vcard"><span class="fn"><a href="http://hackaday.com/author/mikehackaday/" class="fn n" title="Mike Szczys" rel="author">Mike Szczys</a></span></span> <span class="post-comments"><a href="http://hackaday.com/2013/04/09/synthesizing-graphene-in-your-basement-laboratory/#comments">47 Comments</a></span> </div>		<div class="entry-content">
+			<p><img class="aligncenter size-large wp-image-97448" alt="graphene-in-the-home-lab" src="http://hackadaycom.files.wordpress.com/2013/04/graphene-in-the-home-lab.png?w=580&#038;h=424" width="580" height="424" /></p>
+<p>We&#8217;re surprised that we haven&#8217;t come across any of [Robert Murray-Smith's] projects before. Looking through his collection of YouTube uploads proves that he&#8217;s a very active amateur chemist (we assume this is a hobby because he performs the experiment in a mayonnaise jar). The video we&#8217;re featuring today is about ten minutes of <a href="http://www.youtube.com/watch?v=FkgH9G3Yk_0">his technique for synthesizing graphene</a>. The video can be watched after the break. Be warned that the audio doesn&#8217;t sync with the video because he overdubbed the presentation to fix up the poor audio quality from the original.</p>
+<p>Graphene is something of a compound-du-jour when it comes to electronic research. You may remember reading about <a href="http://hackaday.com/2012/12/21/making-graphene-with-a-dvd-burner/">using DVD burners to make graphene film</a> that will go into thinks like super-capacitors to replace batteries. [Robert] starts off his process with a jar of 98% sulfuric acid and 75% phosphoric acid. He pours in powdered graphite (chemical proportions are important here) and gives it a swirl. Next some potassium permanganate is added over about five or ten minutes. From there it goes on the stir plate for three days of constant stirring. During this time the solution will go from green to brown, indicating the presence of graphene oxide.</p>
+<p>He goes on from there, but it&#8217;s clear he hasn&#8217;t found an iron-clad route to his end goal of isolating the graphene for use in constructing things like those super-capcitors we mentioned earlier. If you&#8217;ve got a home lab and some interest perhaps you can contribute to his efforts.</p>
+<p> <a href="http://hackaday.com/2013/04/09/synthesizing-graphene-in-your-basement-laboratory/#more-97437" class="more-link">[Read more...]</a></p>
+<div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"></div>		</div><!-- end .entry-content -->
+		<div class="post-meta"><span class="categories">Filed Under: <a href="http://hackaday.com/category/chemistry-hacks/" title="View all posts in chemistry hacks" rel="category tag">chemistry hacks</a></span>  <span class="tags">Tagged With: <a href="http://hackaday.com/tag/graphene/" rel="tag">graphene</a></span> </div>
+	</div><!-- end .postclass -->
+		<div class="post-97433 post type-post status-publish format-standard hentry category-news tag-pci tag-sw60xg">
+
+				<h2 class="entry-title"><a href="http://hackaday.com/2013/04/08/yamaha-sw60xg-hack-lets-you-use-it-as-a-standalone-midi-device/" title="Yamaha SW60XG hack lets you use it as a standalone MIDI&nbsp;device" rel="bookmark">Yamaha SW60XG hack lets you use it as a standalone MIDI&nbsp;device</a></h2>
+		
+		<div class="post-info"><span class="date published time" title="2013-04-08T14:01:04+00:00">April 8, 2013</span>  By <span class="author vcard"><span class="fn"><a href="http://hackaday.com/author/mikehackaday/" class="fn n" title="Mike Szczys" rel="author">Mike Szczys</a></span></span> <span class="post-comments"><a href="http://hackaday.com/2013/04/08/yamaha-sw60xg-hack-lets-you-use-it-as-a-standalone-midi-device/#comments">18 Comments</a></span> </div>		<div class="entry-content">
+			<p><img class="aligncenter size-large wp-image-97434" alt="yamaha-sw60xg-hack" src="http://hackadaycom.files.wordpress.com/2013/04/yamaha-sw60xg-hack.png?w=580&#038;h=423" width="580" height="423" /></p>
+<p>This is a Yamaha XG card, the SW60XG to be exact. It&#8217;s an audio card for a PC which extends the MIDI standard to include over six hundred instruments. By today&#8217;s standards the almost twenty year old card isn&#8217;t all that powerful, but it is interesting to <a href="https://www.youtube.com/watch?v=k3DrNlqle1A">see it used as a standalone device</a>.</p>
+<p>[Benji Kimba] posted the video overview of his project which you can watch after the break. The image above is found at about 2:35 seconds and about twenty seconds later you get a look at how he patched into the conductors on the edge connector on both sides followed by the MIDI in and out connections. Finally, we get a look at a proper schematic at the four minute mark which details the pull-up resistors, hardware reset circuit, and the optoisolator he added for the MIDI connections themselves.</p>
+<p> <a href="http://hackaday.com/2013/04/08/yamaha-sw60xg-hack-lets-you-use-it-as-a-standalone-midi-device/#more-97433" class="more-link">[Read more...]</a></p>
+<div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"></div>		</div><!-- end .entry-content -->
+		<div class="post-meta"><span class="categories">Filed Under: <a href="http://hackaday.com/category/news/" title="View all posts in news" rel="category tag">news</a></span>  <span class="tags">Tagged With: <a href="http://hackaday.com/tag/pci/" rel="tag">pci</a>, <a href="http://hackaday.com/tag/sw60xg/" rel="tag">sw60xg</a></span> </div>
+	</div><!-- end .postclass -->
+	<div align="center">
+
+
+
+<script type="text/javascript"><!--
+
+google_ad_client = "ca-pub-1812638130783065";
+
+/* Hackaday, 300x250, created 4/26/08, MedRect main column */
+
+google_ad_slot = "3449215672";
+
+google_ad_width = 300;
+
+google_ad_height = 250;
+
+//-->
+
+</script>
+
+<script type="text/javascript"
+
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+
+</script>
+
+
+
+</div>	<div class="post-97421 post type-post status-publish format-standard hentry category-security-hacks tag-cd4017 tag-cd4030 tag-cd4072 tag-cd4081 tag-combination-lock tag-combo-lock tag-lock tag-logic">
+
+				<h2 class="entry-title"><a href="http://hackaday.com/2013/04/08/combo-lock-uses-relays-and-logic-gates/" title="Combo lock uses relays and logic&nbsp;gates" rel="bookmark">Combo lock uses relays and logic&nbsp;gates</a></h2>
+		
+		<div class="post-info"><span class="date published time" title="2013-04-08T10:01:07+00:00">April 8, 2013</span>  By <span class="author vcard"><span class="fn"><a href="http://hackaday.com/author/mikehackaday/" class="fn n" title="Mike Szczys" rel="author">Mike Szczys</a></span></span> <span class="post-comments"><a href="http://hackaday.com/2013/04/08/combo-lock-uses-relays-and-logic-gates/#comments">21 Comments</a></span> </div>		<div class="entry-content">
+			<p><img class="aligncenter size-full wp-image-97422" alt="logic-combo-lock" src="http://hackadaycom.files.wordpress.com/2013/04/logic-combo-lock.png?w=580&#038;h=400" width="580" height="400" /></p>
+<p>Here&#8217;s a really fascinating circuit that <a href="http://circuit4hobby.altervista.org/electronic-key.html">implements a combination lock using relays and logic gates</a>. Even with the schematic and written explanation of how it works we&#8217;re still left somewhat in the dark. We&#8217;ll either pull out some paper and do it by hand this weekend, or build it chunk by chunk in a simulator <a href="http://hackaday.com/2008/12/18/7400-series-logic-simulator/">like Atanua</a>. Either way, the project sparked our interest enough that we want to get elbow deep into its inner workings.</p>
+<p>From the description we know that it uses a combination of CD4017, CD4030, CD4072, and CD4081 chips. You&#8217;re probably familiar with the 4017 which is a decade counter popular in a lot of project. The other chips provide XOR, OR, and AND gates respectively. The relays were chosen for two purposes. One of them activates when a correct combination has been entered, effectively serving as the output for the combo lock. The other two are for activating the clock and affecting a reset if the wrong combination is entered.</p>
+<p>It makes us wonder if this would be incredibly simple to brute force the combination by listening for sound of the reset relay activating? It&#8217;s hard to tell from the video after the break if you can discern a wrong digit from a right once just based on sound.</p>
+<p> <a href="http://hackaday.com/2013/04/08/combo-lock-uses-relays-and-logic-gates/#more-97421" class="more-link">[Read more...]</a></p>
+<div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"></div>		</div><!-- end .entry-content -->
+		<div class="post-meta"><span class="categories">Filed Under: <a href="http://hackaday.com/category/security-hacks/" title="View all posts in security hacks" rel="category tag">security hacks</a></span>  <span class="tags">Tagged With: <a href="http://hackaday.com/tag/cd4017/" rel="tag">cd4017</a>, <a href="http://hackaday.com/tag/cd4030/" rel="tag">cd4030</a>, <a href="http://hackaday.com/tag/cd4072/" rel="tag">cd4072</a>, <a href="http://hackaday.com/tag/cd4081/" rel="tag">cd4081</a>, <a href="http://hackaday.com/tag/combination-lock/" rel="tag">combination lock</a>, <a href="http://hackaday.com/tag/combo-lock/" rel="tag">combo lock</a>, <a href="http://hackaday.com/tag/lock/" rel="tag">lock</a>, <a href="http://hackaday.com/tag/logic/" rel="tag">logic</a></span> </div>
+	</div><!-- end .postclass -->
+		<div class="post-97429 post type-post status-publish format-standard hentry category-led-hacks category-microcontrollers tag-charlieplexing tag-led-module">
+
+				<h2 class="entry-title"><a href="http://hackaday.com/2013/04/08/another-way-to-look-at-charlieplexing/" title="Another way to look at&nbsp;Charlieplexing" rel="bookmark">Another way to look at&nbsp;Charlieplexing</a></h2>
+		
+		<div class="post-info"><span class="date published time" title="2013-04-08T06:01:12+00:00">April 8, 2013</span>  By <span class="author vcard"><span class="fn"><a href="http://hackaday.com/author/mikehackaday/" class="fn n" title="Mike Szczys" rel="author">Mike Szczys</a></span></span> <span class="post-comments"><a href="http://hackaday.com/2013/04/08/another-way-to-look-at-charlieplexing/#comments">7 Comments</a></span> </div>		<div class="entry-content">
+			<p><img class="aligncenter size-full wp-image-97430" alt="charlieplexing-with-buttons" src="http://hackadaycom.files.wordpress.com/2013/04/charlieplexing-with-buttons.png?w=398&#038;h=393" width="398" height="393" /></p>
+<p>Charlieplexing is a technique that allows you to drive a larger number of LEDs than wouldn&#8217;t be possible with the same number of I/O pins on a traditional multiplexed matrix. If we lost you there just think of it as lots of blinky lights connected to a small number of pins. It works by leveraging the one-way nature of a diode. Current will only flow through an LED in one direction so if you hook up your display in a clever way you can drive multiple LEDs from one I/O by switching the polarity of that pin between voltage and ground. [M.Rule] recently looked at using Charlieplexing with LED modules. <a href="http://wealoneonearth.blogspot.com/2013/03/design-note-charlieplexing-led-matrices.html">His conceptual approach to the problem</a> is different from those we remember seeing before and it&#8217;s worth a look.</p>
+<p>Instead of just using the formula to calculate how many LEDs he can drive [M.Rule] is using a table of I/O pins to establish how many and in what order these displays can be connected. Each colored set of blocks represents an LED module. The graphic above shows how 18-pin can be utilized. He even filled in the unused pin combinations with input buttons.</p>
+<div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"></div>		</div><!-- end .entry-content -->
+		<div class="post-meta"><span class="categories">Filed Under: <a href="http://hackaday.com/category/led-hacks/" title="View all posts in led hacks" rel="category tag">led hacks</a>, <a href="http://hackaday.com/category/microcontrollers/" title="View all posts in Microcontrollers" rel="category tag">Microcontrollers</a></span>  <span class="tags">Tagged With: <a href="http://hackaday.com/tag/charlieplexing/" rel="tag">charlieplexing</a>, <a href="http://hackaday.com/tag/led-module/" rel="tag">led module</a></span> </div>
+	</div><!-- end .postclass -->
+		<div class="post-97423 post type-post status-publish format-standard hentry category-hackaday-links tag-duct-tape tag-organizer tag-resisitor tag-rpi tag-tile-saw tag-xbmc">
+
+				<h2 class="entry-title"><a href="http://hackaday.com/2013/04/07/hackaday-links-sunday-april-7th-2013/" title="Hackaday Links: Sunday, April 7th,&nbsp;2013" rel="bookmark">Hackaday Links: Sunday, April 7th,&nbsp;2013</a></h2>
+		
+		<div class="post-info"><span class="date published time" title="2013-04-07T14:01:20+00:00">April 7, 2013</span>  By <span class="author vcard"><span class="fn"><a href="http://hackaday.com/author/mikehackaday/" class="fn n" title="Mike Szczys" rel="author">Mike Szczys</a></span></span> <span class="post-comments"><a href="http://hackaday.com/2013/04/07/hackaday-links-sunday-april-7th-2013/#comments">22 Comments</a></span> </div>		<div class="entry-content">
+			<p><img class="aligncenter size-full wp-image-97424" alt="hackaday-links-chain" src="http://hackadaycom.files.wordpress.com/2013/04/hackaday-links-chain.png?w=580&#038;h=32" width="580" height="32" /></p>
+<p>Let&#8217;s wind down the weekend with some projects that didn&#8217;t quite warrant their own feature, but we think they&#8217;re still worth a look.</p>
+<p>First up is a quick tip on cracking the lids on those hard to open jars of food. [Jason] says just grab about a foot of duct tape and <a href="http://www.youtube.com/watch?v=MIeUjtWppas">the lid will come flying off</a>. And while you&#8217;re searching for that roll of tape why not grab some foil tape to build a cooking oven. [Gabriel] <a href="https://www.youtube.com/watch?v=F_fZEBw8r-c">built this solar oven</a> by covering curved wedges of cardboard with foil tape and combining them to form a parabolic reflector.</p>
+<p>Next we&#8217;ve got a trio of hacks that will come in useful in your home shop or at the local Hackerspace. Organization is key, and here&#8217;s <a href="http://imgur.com/a/r9MOK">a resistor storage system</a> that uses #6 envelopes [via <a href="http://www.reddit.com/r/electronics/comments/1ai07r/my_new_resistor_organiser_box_so_much_better_now/">Reddit</a>]. Also useful is the tip from [Felix] about <a href="http://www.youtube.com/watch?v=6XidzxOSZos">using a tile saw to get clean cuts on your circuit boards</a>. And if you&#8217;ve ever been plagued by a laser cutter job that doesn&#8217;t fully sever the material [Dan] wrote <a href="http://www.marginallyclever.com/blog/2013/03/making-a-redsail-laser-cutter-fence-on-the-redsail-laser-cutter/">a guide on using a fence</a> so that you can reposition the piece for another run.</p>
+<p>Finally, we&#8217;re hoping we weren&#8217;t the only ones that didn&#8217;t realize <a href="http://raspi.tv/2012/making-a-reset-switch-for-your-rev-2-raspberry-pi">the Raspberry Pi has an unpopulated footprint for a reset button</a>. Now we&#8217;ve got to figure out if it&#8217;s okay to leave the PSU plugged in (based on it&#8217;s current consumption while the RPi is in power down) and hack together some sort of TV-based reset circuit for <a href="http://hackaday.com/2012/11/19/raspberry-pi-reaches-critical-mass-as-xbmc-hardware/">our RPi XBMC setup</a>.</p>
+<div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"></div>		</div><!-- end .entry-content -->
+		<div class="post-meta"><span class="categories">Filed Under: <a href="http://hackaday.com/category/hackaday-links/" title="View all posts in Hackaday links" rel="category tag">Hackaday links</a></span>  <span class="tags">Tagged With: <a href="http://hackaday.com/tag/duct-tape/" rel="tag">duct tape</a>, <a href="http://hackaday.com/tag/organizer/" rel="tag">organizer</a>, <a href="http://hackaday.com/tag/resisitor/" rel="tag">resisitor</a>, <a href="http://hackaday.com/tag/rpi/" rel="tag">RPi</a>, <a href="http://hackaday.com/tag/tile-saw/" rel="tag">tile saw</a>, <a href="http://hackaday.com/tag/xbmc/" rel="tag">xbmc</a></span> </div>
+	</div><!-- end .postclass -->
+		<div class="post-97417 post type-post status-publish format-standard hentry category-home-hacks category-robots-hacks tag-electric tag-hybrid tag-lawnmower tag-robot tag-solar">
+
+				<h2 class="entry-title"><a href="http://hackaday.com/2013/04/07/solar-powered-robot-mows-your-lawn-while-you-chill-indoors/" title="Solar powered robot mows your lawn while you chill&nbsp;indoors" rel="bookmark">Solar powered robot mows your lawn while you chill&nbsp;indoors</a></h2>
+		
+		<div class="post-info"><span class="date published time" title="2013-04-07T10:01:09+00:00">April 7, 2013</span>  By <span class="author vcard"><span class="fn"><a href="http://hackaday.com/author/mikehackaday/" class="fn n" title="Mike Szczys" rel="author">Mike Szczys</a></span></span> <span class="post-comments"><a href="http://hackaday.com/2013/04/07/solar-powered-robot-mows-your-lawn-while-you-chill-indoors/#comments">45 Comments</a></span> </div>		<div class="entry-content">
+			<p><img class="aligncenter size-large wp-image-97418" alt="solar-powered-lawn-mowing-robot" src="http://hackadaycom.files.wordpress.com/2013/04/solar-powered-lawn-mowing-robot.jpg?w=580&#038;h=434" width="580" height="434" /></p>
+<p>We&#8217;ve heard quite a number of radio ads lately trying to sell an automatic lawn mowing robot (like a Roomba for your grass). But wouldn&#8217;t it be a lot more fun to hack your own from an existing lawnmower? That&#8217;s what [Daniel Epperson] did. In fact, the project has been ongoing for years. But he wrote in to share the latest development which <a href="http://www.d33z.com/2013/03/solar-mower-charger.html">adds solar charging capabilities to the robot mower</a>.</p>
+<p>First off let&#8217;s discuss the fact that this is not an electric lawnmower. This is the Prius of lawnmowers, bringing together hybrid technology to cut the grass with the gasoline powered motor, and to propel the rig with electricity. [Danny's] worked hard to shoe-horn just about every feature imaginable (other than autonomy) into the thing, and that&#8217;s why the batteries can be charged from mains, an alternator powered by the gas motor, and now from the PV panel mounted on top of it. Get the entire project overview in <a href="http://www.d33z.com/p/robot-mower.html">his roundup post</a>.</p>
+<p>This a wireless video feed and the mower is driven by remote-controlled. So you can give your yard a trim without getting sweaty. After the jump we&#8217;ve embedded a clip of an earlier revision demonstrating that remote control. If you&#8217;re not interest in having all the features you could simply <a href="http://hackaday.com/2010/04/26/lawnmowerstakeropeanalog-robotic-lawn-service/">build an analog version</a>.</p>
+<p> <a href="http://hackaday.com/2013/04/07/solar-powered-robot-mows-your-lawn-while-you-chill-indoors/#more-97417" class="more-link">[Read more...]</a></p>
+<div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"></div>		</div><!-- end .entry-content -->
+		<div class="post-meta"><span class="categories">Filed Under: <a href="http://hackaday.com/category/home-hacks/" title="View all posts in home hacks" rel="category tag">home hacks</a>, <a href="http://hackaday.com/category/robots-hacks/" title="View all posts in robots hacks" rel="category tag">robots hacks</a></span>  <span class="tags">Tagged With: <a href="http://hackaday.com/tag/electric/" rel="tag">electric</a>, <a href="http://hackaday.com/tag/hybrid/" rel="tag">hybrid</a>, <a href="http://hackaday.com/tag/lawnmower/" rel="tag">lawnmower</a>, <a href="http://hackaday.com/tag/robot/" rel="tag">robot</a>, <a href="http://hackaday.com/tag/solar/" rel="tag">solar</a></span> </div>
+	</div><!-- end .postclass -->
+	<div class="navigation"><div class="alignleft"><a href="http://hackaday.com/page/9/" >&laquo; Older Posts</a></div><div class="alignright"><a href="http://hackaday.com/page/7/" >Newer Posts &raquo;</a></div></div><!-- end .navigation -->		</div><!-- end #content -->
+		<div id="sidebar" class="sidebar widget-area">
+<div id=tl_ad>
+	<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1812638130783065";
+/* Hackaday, 300x250, created 4/26/08, MedRect sidebar */
+google_ad_slot = "7800245928";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</div>
+
+
+
+
+
+
+<div class="widget">
+<h4>Never Miss a Hack</h4>
+<div class="textwidget">
+
+<!-- Place this tag where you want the badge to render. -->
+<div class="g-plus" data-width= "280" data-href="https://plus.google.com/114843073658390316652" data-rel="publisher" data-theme="dark"></div>
+<!-- Place this tag after the last badge tag. -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+<div class="fb-like" data-href="https://www.facebook.com/pages/Hack-a-Day/136115233068429?ref=hl" data-send="true" data-width="280" data-show-faces="true" data-colorscheme="dark"></div>
+
+<a href="https://twitter.com/hackaday" class="twitter-follow-button" data-show-count="true" data-lang="en" data-size="large">Follow @twitter</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<a href="http://feeds2.feedburner.com/hackaday/LgoM" target="_blank"><img src="http://hackadaycom.files.wordpress.com/2012/11/orange.png" border="0"/></a>
+<div class="clear"> </div>
+<!-- Begin MailChimp Signup Form -->
+<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+
+<div id="mc_embed_signup">
+<form action="http://mahalo.us5.list-manage.com/subscribe/post?u=126b2ab712043075d9bd7210e&amp;id=cb1aa8bd16" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	<label for="mce-EMAIL">Subscribe to our mailing list for sneak previews and behind the scenes info</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+	<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->
+</div>
+</div>
+
+<div id="categories-2" class="widget widget_categories"><div class="widget-wrap"><h4 class="widgettitle">Categories</h4>
+<select name='cat' id='cat' class='postform' >
+	<option value='-1'>Select Category</option>
+	<option class="level-0" value="114554125">3d Printer hacks&nbsp;&nbsp;(116)</option>
+	<option class="level-0" value="18020710">android hacks&nbsp;&nbsp;(240)</option>
+	<option class="level-0" value="18020705">arduino hacks&nbsp;&nbsp;(1029)</option>
+	<option class="level-0" value="27981650">ARM&nbsp;&nbsp;(51)</option>
+	<option class="level-0" value="33199679">Ask Hackaday&nbsp;&nbsp;(29)</option>
+	<option class="level-0" value="64298109">ATtiny hacks&nbsp;&nbsp;(45)</option>
+	<option class="level-0" value="25122024">beer hacks&nbsp;&nbsp;(63)</option>
+	<option class="level-0" value="12115263">blackberry hacks&nbsp;&nbsp;(8)</option>
+	<option class="level-0" value="10969031">cellphones hacks&nbsp;&nbsp;(337)</option>
+	<option class="level-0" value="35745764">chemistry hacks&nbsp;&nbsp;(102)</option>
+	<option class="level-0" value="24483654">classic hacks&nbsp;&nbsp;(852)</option>
+	<option class="level-0" value="31677810">clock hacks&nbsp;&nbsp;(189)</option>
+	<option class="level-0" value="18755632">cnc hacks&nbsp;&nbsp;(341)</option>
+	<option class="level-0" value="568165">computer hacks&nbsp;&nbsp;(390)</option>
+	<option class="level-0" value="78428">cons&nbsp;&nbsp;(192)</option>
+	<option class="level-0" value="5738">contests&nbsp;&nbsp;(136)</option>
+	<option class="level-0" value="3923181">cooking hacks&nbsp;&nbsp;(72)</option>
+	<option class="level-0" value="10969032">digital audio hacks&nbsp;&nbsp;(422)</option>
+	<option class="level-0" value="10969033">digital cameras hacks&nbsp;&nbsp;(415)</option>
+	<option class="level-0" value="10969034">downloads hacks&nbsp;&nbsp;(101)</option>
+	<option class="level-0" value="107827385">drone hacks&nbsp;&nbsp;(10)</option>
+	<option class="level-0" value="63176382">Engine Hacks&nbsp;&nbsp;(31)</option>
+	<option class="level-0" value="35890">Featured&nbsp;&nbsp;(72)</option>
+	<option class="level-0" value="551890">firefox hacks&nbsp;&nbsp;(23)</option>
+	<option class="level-0" value="53446541">FPGA&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="18020562">g1 hacks&nbsp;&nbsp;(26)</option>
+	<option class="level-0" value="320557">google hacks&nbsp;&nbsp;(44)</option>
+	<option class="level-0" value="10969036">gps hacks&nbsp;&nbsp;(108)</option>
+	<option class="level-0" value="24535490">green hacks&nbsp;&nbsp;(152)</option>
+	<option class="level-0" value="27311668">Hackaday links&nbsp;&nbsp;(146)</option>
+	<option class="level-0" value="21755374">Hackerspaces&nbsp;&nbsp;(93)</option>
+	<option class="level-0" value="6310599">HackIt&nbsp;&nbsp;(101)</option>
+	<option class="level-0" value="10969037">handhelds hacks&nbsp;&nbsp;(189)</option>
+	<option class="level-0" value="79">hardware&nbsp;&nbsp;(249)</option>
+	<option class="level-0" value="144422905">High Voltage Hacks&nbsp;&nbsp;(5)</option>
+	<option class="level-0" value="66307084">Holiday Hacks&nbsp;&nbsp;(93)</option>
+	<option class="level-0" value="10969038">home entertainment hacks&nbsp;&nbsp;(516)</option>
+	<option class="level-0" value="5660882">home hacks&nbsp;&nbsp;(705)</option>
+	<option class="level-0" value="2708">how-to&nbsp;&nbsp;(135)</option>
+	<option class="level-0" value="908478">internet hacks&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="831">Interviews&nbsp;&nbsp;(13)</option>
+	<option class="level-0" value="1416772">iphone hacks&nbsp;&nbsp;(176)</option>
+	<option class="level-0" value="1275163">ipod hacks&nbsp;&nbsp;(144)</option>
+	<option class="level-0" value="344761">kickstarter&nbsp;&nbsp;(29)</option>
+	<option class="level-0" value="4157506">Kindle hacks&nbsp;&nbsp;(15)</option>
+	<option class="level-0" value="46717088">Kinect hacks&nbsp;&nbsp;(81)</option>
+	<option class="level-0" value="10969048">laptops hacks&nbsp;&nbsp;(111)</option>
+	<option class="level-0" value="10969055">laser hacks&nbsp;&nbsp;(167)</option>
+	<option class="level-0" value="18020716">led hacks&nbsp;&nbsp;(695)</option>
+	<option class="level-0" value="10626">lifehacks&nbsp;&nbsp;(54)</option>
+	<option class="level-0" value="729674">linux hacks&nbsp;&nbsp;(129)</option>
+	<option class="level-0" value="20732807">lockpicking hacks&nbsp;&nbsp;(11)</option>
+	<option class="level-0" value="10969060">macs hacks&nbsp;&nbsp;(135)</option>
+	<option class="level-0" value="144395979">Marijuana Hacks&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="11284667">Medical hacks&nbsp;&nbsp;(102)</option>
+	<option class="level-0" value="139916">Microcontrollers&nbsp;&nbsp;(512)</option>
+	<option class="level-0" value="5611793">misc hacks&nbsp;&nbsp;(1747)</option>
+	<option class="level-0" value="18020730">multitouch hacks&nbsp;&nbsp;(89)</option>
+	<option class="level-0" value="22652725">musical hacks&nbsp;&nbsp;(290)</option>
+	<option class="level-0" value="18020722">netbook hacks&nbsp;&nbsp;(50)</option>
+	<option class="level-0" value="6166512">Network Hacks&nbsp;&nbsp;(4)</option>
+	<option class="level-0" value="103">news&nbsp;&nbsp;(1091)</option>
+	<option class="level-0" value="1861880">nintendo ds hacks&nbsp;&nbsp;(34)</option>
+	<option class="level-0" value="114555425">nintendo gameboy hacks&nbsp;&nbsp;(90)</option>
+	<option class="level-0" value="18020685">nintendo hacks&nbsp;&nbsp;(261)</option>
+	<option class="level-0" value="4992726">nintendo wii hacks&nbsp;&nbsp;(78)</option>
+	<option class="level-0" value="118011206">Nook Hacks&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="114556430">palm pre hacks&nbsp;&nbsp;(6)</option>
+	<option class="level-0" value="245123">parts&nbsp;&nbsp;(72)</option>
+	<option class="level-0" value="10969081">peripherals hacks&nbsp;&nbsp;(648)</option>
+	<option class="level-0" value="16325149">phone hacks&nbsp;&nbsp;(17)</option>
+	<option class="level-0" value="10969088">playstation hacks&nbsp;&nbsp;(120)</option>
+	<option class="level-0" value="2060">podcasts&nbsp;&nbsp;(8)</option>
+	<option class="level-0" value="10969096">portable audio hacks&nbsp;&nbsp;(66)</option>
+	<option class="level-0" value="10969099">portable video hacks&nbsp;&nbsp;(57)</option>
+	<option class="level-0" value="588444">psp hacks&nbsp;&nbsp;(47)</option>
+	<option class="level-0" value="23971578">radio hacks&nbsp;&nbsp;(137)</option>
+	<option class="level-0" value="47">rants&nbsp;&nbsp;(28)</option>
+	<option class="level-0" value="69218551">Raspberry Pi&nbsp;&nbsp;(153)</option>
+	<option class="level-0" value="21870780">repair hacks&nbsp;&nbsp;(101)</option>
+	<option class="level-0" value="309">reviews&nbsp;&nbsp;(19)</option>
+	<option class="level-0" value="10969101">robots hacks&nbsp;&nbsp;(874)</option>
+	<option class="level-0" value="30302">roundup&nbsp;&nbsp;(35)</option>
+	<option class="level-0" value="10969111">security hacks&nbsp;&nbsp;(460)</option>
+	<option class="level-0" value="2301">Software Development&nbsp;&nbsp;(91)</option>
+	<option class="level-0" value="3796421">software hacks&nbsp;&nbsp;(47)</option>
+	<option class="level-0" value="10969116">solar hacks&nbsp;&nbsp;(46)</option>
+	<option class="level-0" value="10969121">tablet pcs hacks&nbsp;&nbsp;(40)</option>
+	<option class="level-0" value="3075183">teardown&nbsp;&nbsp;(31)</option>
+	<option class="level-0" value="10969130">tool hacks&nbsp;&nbsp;(657)</option>
+	<option class="level-0" value="25277004">toy hacks&nbsp;&nbsp;(360)</option>
+	<option class="level-0" value="10969134">transportation hacks&nbsp;&nbsp;(472)</option>
+	<option class="level-0" value="1">Uncategorized&nbsp;&nbsp;(332)</option>
+	<option class="level-0" value="3184456">video hacks&nbsp;&nbsp;(211)</option>
+	<option class="level-0" value="34942364">Virtual Reality&nbsp;&nbsp;(9)</option>
+	<option class="level-0" value="50802420">weapons hacks&nbsp;&nbsp;(63)</option>
+	<option class="level-0" value="12552193">wearable hacks&nbsp;&nbsp;(183)</option>
+	<option class="level-0" value="39510952">Weekly roundup&nbsp;&nbsp;(18)</option>
+	<option class="level-0" value="4891215">wireless hacks&nbsp;&nbsp;(333)</option>
+	<option class="level-0" value="7079455">xbox hacks&nbsp;&nbsp;(130)</option>
+</select>
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+	var dropdown = document.getElementById("cat");
+	function onCatChange() {
+		if ( dropdown.options[dropdown.selectedIndex].value > 0 ) {
+			location.href = "http://hackaday.com/?cat="+dropdown.options[dropdown.selectedIndex].value;
+		}
+	}
+	dropdown.onchange = onCatChange;
+/* ]]> */
+</script>
+
+</div></div>
+<div id="featured-post-2" class="widget featuredpost"><div class="widget-wrap"><h4 class="widgettitle">In case you missed it</h4>
+<div class="post-97657 post type-post status-publish format-standard hentry category-3d-printer-hacks category-featured tag-algae tag-bioluminescence tag-dinoflagellate tag-glowing tag-phosphorescence"><a href="http://hackaday.com/2013/04/18/living-night-light-with-glowing-algae/" title="Living night light with glowing&nbsp;algae" class="alignleft"><img width="90" height="61" src="http://hackadaycom.files.wordpress.com/2013/04/thumb1.jpg?w=90" class="attachment-thumbnail" alt="thumb" /></a><h2><a href="http://hackaday.com/2013/04/18/living-night-light-with-glowing-algae/" title="Living night light with glowing&nbsp;algae">Living night light with glowing&nbsp;algae</a></h2><p class="byline post-info"><br /> <span class="post-comments"><a href="http://hackaday.com/2013/04/18/living-night-light-with-glowing-algae/#comments">67 Comments</a></span></p></div><!--end post_class()-->
+
+<div class="post-97648 post type-post status-publish format-standard hentry category-3d-printer-hacks category-featured category-virtual-reality-2 tag-3d-printing tag-lulzbot tag-oculus-rift tag-virtual-reality tag-vr"><a href="http://hackaday.com/2013/04/17/3d-printing-sensor-mounts-for-the-oculus-rift/" title="3D Printing sensor mounts for the Oculus&nbsp;Rift" class="alignleft"><img width="90" height="67" src="http://hackadaycom.files.wordpress.com/2013/04/thumb.jpg?w=90" class="attachment-thumbnail" alt="thumb" /></a><h2><a href="http://hackaday.com/2013/04/17/3d-printing-sensor-mounts-for-the-oculus-rift/" title="3D Printing sensor mounts for the Oculus&nbsp;Rift">3D Printing sensor mounts for the Oculus&nbsp;Rift</a></h2><p class="byline post-info"><br /> <span class="post-comments"><a href="http://hackaday.com/2013/04/17/3d-printing-sensor-mounts-for-the-oculus-rift/#comments">7 Comments</a></span></p></div><!--end post_class()-->
+
+<div class="post-97564 post type-post status-publish format-standard hentry category-featured category-virtual-reality-2 tag-adaliight tag-ambilight tag-oculus-rift tag-virtual-reality tag-vr"><a href="http://hackaday.com/2013/04/11/hacking-the-oculus-rift-the-oculight/" title="Hacking the Oculus Rift: the&nbsp;Oculight" class="alignleft"><img width="90" height="54" src="http://hackadaycom.files.wordpress.com/2013/04/screen-shot-2013-04-14-at-9-52-43-am.png?w=90" class="attachment-thumbnail" alt="Screen Shot 2013-04-14 at 9.52.43 AM" /></a><h2><a href="http://hackaday.com/2013/04/11/hacking-the-oculus-rift-the-oculight/" title="Hacking the Oculus Rift: the&nbsp;Oculight">Hacking the Oculus Rift: the&nbsp;Oculight</a></h2><p class="byline post-info"><br /> <span class="post-comments"><a href="http://hackaday.com/2013/04/11/hacking-the-oculus-rift-the-oculight/#comments">20 Comments</a></span></p></div><!--end post_class()-->
+
+<div class="post-97538 post type-post status-publish format-standard hentry category-featured category-news tag-top-10 tag-wins"><a href="http://hackaday.com/2013/04/11/top-10-best-hacking-scenes-in-movies/" title="Top 10 best hacking scenes in&nbsp;movies" class="alignleft"><img width="90" height="55" src="http://hackadaycom.files.wordpress.com/2013/04/screen-shot-2013-04-14-at-9-51-38-am.png?w=90" class="attachment-thumbnail" alt="Screen Shot 2013-04-14 at 9.51.38 AM" /></a><h2><a href="http://hackaday.com/2013/04/11/top-10-best-hacking-scenes-in-movies/" title="Top 10 best hacking scenes in&nbsp;movies">Top 10 best hacking scenes in&nbsp;movies</a></h2><p class="byline post-info"><br /> <span class="post-comments"><a href="http://hackaday.com/2013/04/11/top-10-best-hacking-scenes-in-movies/#comments">88 Comments</a></span></p></div><!--end post_class()-->
+
+<div class="post-97094 post type-post status-publish format-standard hentry category-featured category-news tag-april-fools"><a href="http://hackaday.com/2013/04/01/hackadays-very-first-kickstarter-campaign/" title="Hackaday&#8217;s very first Kickstarter&nbsp;campaign" class="alignleft"><img width="90" height="54" src="http://hackadaycom.files.wordpress.com/2013/03/hackaday-kickstarter.jpg?w=90" class="attachment-thumbnail" alt="hackaday-kickstarter" /></a><h2><a href="http://hackaday.com/2013/04/01/hackadays-very-first-kickstarter-campaign/" title="Hackaday&#8217;s very first Kickstarter&nbsp;campaign">Hackaday&#8217;s very first Kickstarter&nbsp;campaign</a></h2><p class="byline post-info"><br /> <span class="post-comments"><a href="http://hackaday.com/2013/04/01/hackadays-very-first-kickstarter-campaign/#comments">58 Comments</a></span></p></div><!--end post_class()-->
+
+<p class="more-from-category"><a href="http://hackaday.com/category/featured/" title="Featured">More Posts from this Category</a></p></div></div>
+<div id="recent-comments-2" class="widget widget_recent_comments"><div class="widget-wrap"><h4 class="widgettitle">Recent comments</h4>
+				<ul id="recentcomments">
+											<li class="recentcomments">
+							echodelta on <a href="http://hackaday.com/2013/04/23/rattle-generator-is-a-new-type-of-dynamo-for-a-bicycle/comment-page-1/#comment-997083">Rattle generator is a new type of dynamo for a&nbsp;bicycle</a>						</li>
+												<li class="recentcomments">
+							<a href='http://jsutton.co.uk' rel='external nofollow' class='url'>James</a> on <a href="http://hackaday.com/2013/04/23/console-radio-given-new-life-with-a-wifi-router-retrofit/comment-page-1/#comment-997080">Console radio given new life with a WiFi router&nbsp;retrofit</a>						</li>
+												<li class="recentcomments">
+							nhede on <a href="http://hackaday.com/2013/04/22/20-pounds-and-a-gut-feeling-yields-a-configurable-rubidium-atomic-clock-source/comment-page-1/#comment-997074">20 pounds and a gut feeling yields a configurable Rubidium atomic clock&nbsp;source</a>						</li>
+												<li class="recentcomments">
+							Dax on <a href="http://hackaday.com/2013/04/23/rattle-generator-is-a-new-type-of-dynamo-for-a-bicycle/comment-page-1/#comment-997071">Rattle generator is a new type of dynamo for a&nbsp;bicycle</a>						</li>
+												<li class="recentcomments">
+							TacticalNinja on <a href="http://hackaday.com/2013/04/23/otm-02-is-a-3d-printed-wristwatch/comment-page-1/#comment-997070">OTM-02 is a 3D printed&nbsp;wristwatch</a>						</li>
+												<li class="recentcomments">
+							Arlet on <a href="http://hackaday.com/2013/04/23/rattle-generator-is-a-new-type-of-dynamo-for-a-bicycle/comment-page-1/#comment-997017">Rattle generator is a new type of dynamo for a&nbsp;bicycle</a>						</li>
+												<li class="recentcomments">
+							Arlet on <a href="http://hackaday.com/2013/04/23/rattle-generator-is-a-new-type-of-dynamo-for-a-bicycle/comment-page-1/#comment-997016">Rattle generator is a new type of dynamo for a&nbsp;bicycle</a>						</li>
+												<li class="recentcomments">
+							<a href='http://smonson.com/' rel='external nofollow' class='url'>Smonson</a> on <a href="http://hackaday.com/2013/04/23/rattle-generator-is-a-new-type-of-dynamo-for-a-bicycle/comment-page-1/#comment-996997">Rattle generator is a new type of dynamo for a&nbsp;bicycle</a>						</li>
+												<li class="recentcomments">
+							<a href='http://twitter.com/admsch' rel='external nofollow' class='url'>Adam Scheuring (@admsch)</a> on <a href="http://hackaday.com/2013/04/23/otm-02-is-a-3d-printed-wristwatch/comment-page-1/#comment-996993">OTM-02 is a 3D printed&nbsp;wristwatch</a>						</li>
+												<li class="recentcomments">
+							JoSSte on <a href="http://hackaday.com/2013/04/23/rattle-generator-is-a-new-type-of-dynamo-for-a-bicycle/comment-page-1/#comment-996990">Rattle generator is a new type of dynamo for a&nbsp;bicycle</a>						</li>
+										</ul>
+				</div></div>
+<div id="calendar-2" class="widget widget_calendar"><div class="widget-wrap"><h4 class="widgettitle">Find Hacks by Date</h4>
+<div id="calendar_wrap"><table id="wp-calendar">
+	<caption>April 2013</caption>
+	<thead>
+	<tr>
+		<th scope="col" title="Sunday">S</th>
+		<th scope="col" title="Monday">M</th>
+		<th scope="col" title="Tuesday">T</th>
+		<th scope="col" title="Wednesday">W</th>
+		<th scope="col" title="Thursday">T</th>
+		<th scope="col" title="Friday">F</th>
+		<th scope="col" title="Saturday">S</th>
+	</tr>
+	</thead>
+
+	<tfoot>
+	<tr>
+		<td colspan="3" id="prev"><a href="http://hackaday.com/2013/03/" title="View posts for March 2013">&laquo; Mar</a></td>
+		<td class="pad">&nbsp;</td>
+		<td colspan="3" id="next" class="pad">&nbsp;</td>
+	</tr>
+	</tfoot>
+
+	<tbody>
+	<tr>
+		<td colspan="1" class="pad">&nbsp;</td><td><a href="http://hackaday.com/2013/04/01/" title="Hackaday&#8217;s very first Kickstarter&nbsp;campaign, Doctor Who-style&nbsp;WiFi, Kindle weather and recycling&nbsp;display, Windmill made from washing machine, 555&nbsp;chip, SNES headphones scream out for Bluetooth&nbsp;control, How-to: turn on a light&nbsp;bulb">1</a></td><td><a href="http://hackaday.com/2013/04/02/" title="An EQ display for a pedal&nbsp;board, Dual displays on a Playstation&nbsp;2, Ask Hackaday: Hacking lingo&nbsp;fails, Cooling a photomultiplier&nbsp;tube, Hackerspace tour: Arch Reactor in St. Louis&nbsp;Missouri, Adafruit launches educational show aimed at&nbsp;kids, CNC Tic Tac&nbsp;Toe, Building a vehicle parking&nbsp;camera, April Fools&#8217; project teaches coworkers not to touch your&nbsp;stuff, SenseLamp automates rooms by replacing light&nbsp;fixtures">2</a></td><td><a href="http://hackaday.com/2013/04/03/" title="Embedded web server is all about clever&nbsp;formatting, Powering the Oculus Rift with&nbsp;USB, Upgrading a router with impeccable soldering&nbsp;skills, Homebuilt Laser Cutter&nbsp;Ideas, Building a&nbsp;Theremincello, Microscope ring light with a number of different&nbsp;features, Hall effect limit switches for a 3D&nbsp;printer, Adding an optical mouse sensor to an autonomous&nbsp;vehicle">3</a></td><td><a href="http://hackaday.com/2013/04/04/" title="Retrotechtacular: The Fourier&nbsp;Series, MP3/USB/Aux hack hidden behind cassette&nbsp;facade, Pranking a hackerspace IRC for April Fool&#8217;s&nbsp;Day, Turning an easter egg hunt into a fox&nbsp;hunt, Wireless Temperature Control for a&nbsp;Microbrewery, Melting Metal with a DIY Foundry&nbsp;Furnace, Top 10 Hacking Failures in movies: part&nbsp;2, Steampunk theremin&nbsp;goggles, High speed circuit design for quantum physics light&nbsp;sensing, Home security hardware makes you the monitoring&nbsp;service">4</a></td><td><a href="http://hackaday.com/2013/04/05/" title="Snowboard goggle HUD displays critical data while falling down a&nbsp;mountain, Electric tricycle build log is like hacker&nbsp;crack, H-bot style 3D printer moves bed for&nbsp;Z-axis, Stapler hack fastens infinitely large sheets of&nbsp;paper, Light Graffiti with Servos and&nbsp;Python">5</a></td><td><a href="http://hackaday.com/2013/04/06/" title="Fixing the worst video game ever: E.T. for Atari&nbsp;2600, Rolling your own minimal USB to serial Arduino&nbsp;programmer, Making PLA stick to a 3D printer build platform by using hairspray or an acetone ABS&nbsp;slurry">6</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://hackaday.com/2013/04/07/" title="Acoustic bass guitar uses water jug and two&nbsp;strings, Solar powered robot mows your lawn while you chill&nbsp;indoors, Hackaday Links: Sunday, April 7th,&nbsp;2013">7</a></td><td><a href="http://hackaday.com/2013/04/08/" title="Another way to look at&nbsp;Charlieplexing, Combo lock uses relays and logic&nbsp;gates, Yamaha SW60XG hack lets you use it as a standalone MIDI&nbsp;device">8</a></td><td><a href="http://hackaday.com/2013/04/09/" title="Synthesizing graphene in your basement&nbsp;laboratory, The RedBull creation contest&nbsp;begins!, Recurve bow make from wood and&nbsp;skis, Wall wart computer&nbsp;mouse">9</a></td><td><a href="http://hackaday.com/2013/04/10/" title="Hacker sends this through the mail to record a video of the&nbsp;process, MIDI pedal project looks as good as it&nbsp;sounds, Perpetual&nbsp;pong">10</a></td><td><a href="http://hackaday.com/2013/04/11/" title="Snowboard propulsion system motors you through the&nbsp;flats, Guitar EQ levels trigger the stage&nbsp;lights, Top 10 best hacking scenes in&nbsp;movies, Automating a mechanical&nbsp;typewriter, Hacking the Oculus Rift: the&nbsp;Oculight">11</a></td><td><a href="http://hackaday.com/2013/04/12/" title="Jeep Wrangler gets pressurized water right out of the&nbsp;bumper, Horribly complicated electric guitar&nbsp;keyboard, Generating electricity from&nbsp;alcohol">12</a></td><td><a href="http://hackaday.com/2013/04/13/" title="Network-controlled fireworks&nbsp;launcher, Working 3D printed stepper&nbsp;motor, SqueezeBerry: a Raspberri Pi powered Squeezebox&nbsp;appliance">13</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://hackaday.com/2013/04/14/" title="Teaching a computer to play Mario&#8230; seemingly through&nbsp;voodoo, Building a replacement for a broken dehumidifier&nbsp;controller, Hackaday Links: Sunday, April 14th,&nbsp;2013">14</a></td><td><a href="http://hackaday.com/2013/04/15/" title="Glowing Easter eggs more fun than a dye&nbsp;job, [FlorianH] shows off MinimaBL, the next generation of his quadcopter&nbsp;project, Original hardware for fifteen consoles jammed into recently completed Project&nbsp;Unity">15</a></td><td><a href="http://hackaday.com/2013/04/16/" title="Tube radio husk gets a web radio&nbsp;transplant, Building a kegerator with visual&nbsp;style, Hacked together Mac isn&#8217;t a&nbsp;hackintosh">16</a></td><td><a href="http://hackaday.com/2013/04/17/" title="Hackerspace security system brings RFID, video feedback, and automatic&nbsp;doors, Apple MagSafe cord&nbsp;repair, 3D Printing sensor mounts for the Oculus&nbsp;Rift, Upgrade a toy keyboard&#8217;s tone&nbsp;production">17</a></td><td><a href="http://hackaday.com/2013/04/18/" title="Hidden servo automates slat-style window&nbsp;blinds, Semi-automatic pick and place&nbsp;machine, Living night light with glowing&nbsp;algae, Pulse Oximeter from LM324, LED, and&nbsp;Photodiode">18</a></td><td><a href="http://hackaday.com/2013/04/19/" title="Measuring the lifespan of&nbsp;LEGO, Replace your project power supplies with recycled Li-Ion cells and a switching&nbsp;regulator, Asynchronous fireflies use few&nbsp;parts">19</a></td><td><a href="http://hackaday.com/2013/04/20/" title="This piggy bank is our stock&nbsp;broker, GUI window manager on an AVR&nbsp;chip, Mood lamp/notifier uses neat modular PCB&nbsp;design">20</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://hackaday.com/2013/04/21/" title="3D printing some sweet&nbsp;music, Drop-in pcb makes Nintendo Four Score a USB&nbsp;joystick, Hackaday Links: Sunday, April 21st,&nbsp;2013">21</a></td><td><a href="http://hackaday.com/2013/04/22/" title="Automatic tubular bells given a MIDI interface&nbsp;too, Connect a Retina display to a regular&nbsp;computer, 20 pounds and a gut feeling yields a configurable Rubidium atomic clock&nbsp;source">22</a></td><td><a href="http://hackaday.com/2013/04/23/" title="Console radio given new life with a WiFi router&nbsp;retrofit, What are the best hacking&nbsp;documentaries?, OTM-02 is a 3D printed&nbsp;wristwatch, Rattle generator is a new type of dynamo for a&nbsp;bicycle">23</a></td><td id="today">24</td><td>25</td><td>26</td><td>27</td>
+	</tr>
+	<tr>
+		<td>28</td><td>29</td><td>30</td>
+		<td class="pad" colspan="4">&nbsp;</td>
+	</tr>
+	</tbody>
+	</table></div></div></div>
+ <div id=virurl>
+<!-- BEGIN - VIRURL Widget - iFrame Embed Code -->
+<iframe style="border: none; margin: 0; padding: 0; width: 300px; height: 600px;" src="https://www.virurl.com/iframe_widget?t=hackaday&l=5&category=Tech&w=23&u=147555"
+width="300" height="600" scrolling="no" >
+</iframe>
+<!-- END - VIRURL Widget - iFrame Embed Code -->
+</div>
+<br />
+<br />
+<div id=tl_ad_bottom>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1812638130783065";
+/* Hackaday sidebar wide skyscraper */
+google_ad_slot = "1587378096";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_region = "test";
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+<br />
+
+
+
+
+
+
+</div>	</div><!-- end #content-sidebar-wrap -->
+	</div><!-- end .wrap --></div><!-- end #inner --><div id="footer" class="footer"><div class="wrap"><div class="gototop"><p><a href="#wrap" rel="nofollow">Return to top of page</a></p></div><div class="creds"><p>Copyright &copy; 2013 &middot;  <a href="http://www.studiopress.com/" title="Genesis Framework">Genesis Framework</a> &middot; <a href="http://wordpress.org/" title="WordPress">WordPress</a> &middot; <a href="http://hackadaycom.wordpress.com/wp-login.php">Log in</a></p></div></div><!-- end .wrap --></div><!-- end #footer -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2201445-6");
+pageTracker._trackPageview();
+</script>
+<!-- Start Quantcast tag -->
+<script type="text/javascript">
+_qoptions={
+qacct:"p-cc6zkdHuZwUDM"
+};
+</script>
+<script type="text/javascript"
+src="http://edge.quantserve.com/quant.js"></script>
+<noscript>
+<img src="http://pixel.quantserve.com/pixel/p-cc6zkdHuZwUDM.gif"
+style="display: none;" border="0" height="1" width="1"
+alt="Quantcast"/>
+</noscript></div><!-- end #wrap -->
+
+<script type="text/javascript">
+var _qevents = _qevents || [], wpcomQuantcastData = {"qacct":"p-18-mFEk4J448M","labels":",language.en,type.wpcom,vip.hackadaycom"};
+function wpcomQuantcastPixel( labels, options ) {
+	var i, defaults = wpcomQuantcastData, data = { event: 'ajax' };
+
+	labels  = labels  || '';
+	options = options || {};
+
+	if ( typeof labels != 'string' )
+		options = labels;
+
+	for ( i in defaults ) {
+		data[i] = defaults[i];
+	}
+
+	for ( i in options ) {
+		data[i] = options[i];
+	}
+
+	if ( data.labels ) {
+		data.labels += ',' + labels;
+	} else {
+		data.labels = labels;
+	}
+
+	_qevents.push( data );
+};
+(function() {var elem = document.createElement('script');elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";elem.async = true;elem.type = "text/javascript";var scpt = document.getElementsByTagName('script')[0];scpt.parentNode.insertBefore(elem, scpt);  })();
+_qevents.push( wpcomQuantcastData );
+</script>
+<noscript><div style="display: none;"><img src="//pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif?labels=%2Clanguage.en%2Ctype.wpcom%2Cvip.hackadaycom" height="1" width="1" alt="" /></div></noscript>
+
+
+		<!-- /// LOAD CHARTBEAT /// -->
+		<script type="text/javascript">
+		var _sf_async_config={};
+		_sf_async_config.uid = 2021;
+		_sf_async_config.useCanonical = true;
+		
+		(function(){
+		  function loadChartbeat() {
+			window._sf_endpt=(new Date()).getTime();
+			var e = document.createElement('script');
+			e.setAttribute('language', 'javascript');
+			e.setAttribute('type', 'text/javascript');
+			e.setAttribute('src',
+			   (("https:" == document.location.protocol) ? "https://s3.amazonaws.com/" : "http://") +
+			   "static.chartbeat.com/js/chartbeat.js");
+			document.body.appendChild(e);
+		  }
+		  var oldonload = window.onload;
+		  window.onload = (typeof window.onload != 'function') ?
+			 loadChartbeat : function() { oldonload(); loadChartbeat(); };
+		})();
+		</script>
+			<div style="display:none">
+	</div>
+<script type='text/javascript' src='http://s2.wp.com/_static/??-eJylzMsOREAQRuEXMoqgEwvxLC4/qjPVOl3dZh4fO3vrk+/Qz3+m3UW4SFZpxsET/D+3mtEjxQ0CJR8gnIRWOCgrfXm8lcAl0uQRFtbtlR3Cqtegl66smto0xhStPQEw5Dy+'></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script><script src="http://s.stats.wordpress.com/w.js?21" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({'blog':'4779443','v':'wpcom','tz':'-7','user_id':'0','subd':'hackadaycom'});
+function st_vt() {var x=document.createElement("img");x.src="http://stats.wordpress.com/g.gif?blog=4779443&v=wpcomvt&tz=-7&user_id=0&subd=hackadaycom&rand="+Math.random();}
+ex_go({'crypt':'UE40eW5QN0p8M2Y/RE1BNmNJfGhxNCVxUDExYmtXRThKbHcwXTdETWI1alhvb1oseHImN101ZFpEakVpYjlQYVFLYzBaVHRtPz0wXS9bVlFpZ3c1Qn5KSThLNS9lSHNGOE1IJk9+N3xFNWxyT2x+MUpnR1dJcFZJdW1bZHA4cS9MVDc4YVJ6amsxSnJtdy5Ldm9qNjlfWFVaMS4uLnxvM3FfdCtMbj9wQ2FSbXcrMFp6MVhhfldoM19dVXVSbTcwV2dBMnI3S2J3NSVtdz0zREsmQVFbP0o2UkV5TFUyLXpwMlRsQW9OQnB2T2pUWkMuaVQ0bCtLTnd2ZXVJWzU='});
+addLoadEvent(function(){linktracker_init('4779443',0);});
+	</script>
+<noscript><img src="http://stats.wordpress.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
+<script type="text/javascript">
+	// Trigger Quantcast pixel for each Infinite Scroll post load
+	if ( 'function' === typeof( jQuery ) ) {
+		jQuery( document.body ).on( 'post-load', function() {
+			if ( 'function' === typeof( wpcomQuantcastPixel ) )
+				wpcomQuantcastPixel();
+		} );
+	}
+</script>
+</body>
+</html>
