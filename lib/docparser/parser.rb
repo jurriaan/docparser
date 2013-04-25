@@ -81,18 +81,9 @@ module DocParser
       start_time = Time.now
 
       if @num_processes > 1
-        @logger.info "Starting #{@num_processes} processes"
-        Parallel.map(@files, in_processes: @num_processes) do |file|
-          parse_doc(file, &block)
-        end.each do |result|
-          result.each_with_index { |set, index| @resultsets[index].merge(set) }
-        end
+        parallel_process(&block)
       else
-        @files.each do |file|
-          parse_doc(file, &block).each_with_index do |set, index|
-            @resultsets[index].merge(set)
-          end
-        end
+        serial_process(&block)
       end
 
       @logger.info 'Processing finished'
@@ -103,6 +94,25 @@ module DocParser
     end
 
     private
+
+    def parallel_process(&block)
+      @logger.info "Starting #{@num_processes} processes"
+      Parallel.map(@files, in_processes: @num_processes) do |file|
+        parse_doc(file, &block)
+      end.each do |result|
+        result.each_with_index do |set, index|
+          @resultsets[index].merge(set)
+        end if @outputs
+      end
+    end
+
+    def serial_process(&block)
+      @files.each do |file|
+        parse_doc(file, &block).each_with_index do |set, index|
+          @resultsets[index].merge(set) if @outputs
+        end
+      end
+    end
 
     def parse_doc(file, &block)
       doc = Document.new(filename: file, encoding: @encoding, parser: self)

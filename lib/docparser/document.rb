@@ -21,7 +21,7 @@ module DocParser
       @encoding = encoding
       @parser = parser
       @filename = filename
-      @results = Array.new(@parser.outputs.length) { [] }
+      @results = Array.new(@parser.outputs ? @parser.outputs.length : 0) { [] }
     end
 
     # Adds a row to an output
