@@ -7,7 +7,7 @@ require File.expand_path('lib/docparser.rb', __dir__)
 require 'tmpdir'
 
 include DocParser
-output = MultiOutput.new(filename: 'hackaday.html')
+output = MultiOutput.new(filename: 'hackaday')
 output.header = 'Title', 'Author', 'Publication date', 'URL', 'Summary'
 files = Dir[File.join(__dir__, 'test/support/hackaday/*.html')]
 parser = Parser.new(files: files, parallel: false, output: output)
