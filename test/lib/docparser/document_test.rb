@@ -2,8 +2,9 @@ require_relative '../../test_helper'
 describe DocParser::Document do
   before do
     Log4r::Logger['docparser'].level = Log4r::INFO
+    $output = DocParser::NilOutput.new
     @parser = Class.new do
-      define_method(:outputs) { [DocParser::NilOutput.new] }
+      define_method(:outputs) { [$output] }
     end.new
     @test_doc_path = File.join($SUPPORT_DIR, 'test_html.html')
     @test_doc = DocParser::Document.new(filename: @test_doc_path,
@@ -41,6 +42,11 @@ describe DocParser::Document do
                                    encoding: 'iso-8859-1')
     doc.html.must_equal(doc2.html)
     doc.css_content('#encoding').must_equal(doc2.css_content('#encoding'))
+  end
+
+  it 'should specify filename and encoding in #inspect' do
+    @test_doc.inspect.must_include(@test_doc.filename)
+    @test_doc.inspect.must_include(@test_doc.encoding)
   end
 
   it 'should get the title of a document' do
@@ -101,5 +107,28 @@ describe DocParser::Document do
     err.must_include "#{file.path} is empty"
   end
 
+  it 'should add the row to the results' do
+    @test_doc.add_row ['test']
+    @test_doc.add_row 'test', 'test2'
+    @test_doc.results.must_equal [[['test'], ['test', 'test2']]]
+  end
+
+  it 'should be possible to specify outputs directly' do
+    @test_doc.add_row ['test!'], output: $output
+    @test_doc.results.must_equal [[['test!']]]
+  end
+
+  it 'should be possible to use multiple outputs' do
+    output = DocParser::NilOutput.new
+    output2 = DocParser::NilOutput.new
+    parser = Class.new do
+      define_method(:outputs) { [output, output2] }
+    end.new
+    test_doc = DocParser::Document.new(filename: @test_doc_path,
+                                      parser: parser)
+    test_doc.add_row ['a'], output: 1
+    test_doc.add_row ['b'], output: 0
+    test_doc.results.must_equal [[['b']], [['a']]]
+  end
 
 end

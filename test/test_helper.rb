@@ -6,6 +6,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require 'tempfile'
 require 'tmpdir'
+require 'simple_mock'
 
 require File.expand_path('../lib/docparser.rb', __dir__)
 $TEST_DIR = __dir__

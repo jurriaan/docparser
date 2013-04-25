@@ -13,4 +13,5 @@ group :test do
   gem 'rake'
   gem 'rubocop'
   gem 'simplecov', :require => false
+  gem 'simple_mock'
 end
