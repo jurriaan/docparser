@@ -6,6 +6,7 @@ module DocParser
   class YAMLOutput < Output
     # @!visibility private
     def write_row(row)
+      raise MissingHeaderException if @header.nil? || @header.length == 0
       @doc ||= {}
       0.upto(@header.length - 1) do |counter|
         if row.length > counter

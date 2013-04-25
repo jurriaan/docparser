@@ -25,6 +25,7 @@ module DocParser
     end
 
     def write_row(row)
+      raise MissingHeaderException if @header.nil? || @header.length == 0
       out = []
       0.upto(@header.length - 1) do |counter|
         out << [@header[counter], row[counter]]

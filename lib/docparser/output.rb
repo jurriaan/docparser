@@ -56,4 +56,7 @@ module DocParser
     def footer
     end
   end
+
+  class MissingHeaderException < StandardError
+  end
 end

@@ -12,6 +12,7 @@ module DocParser
     end
 
     def write_row(row)
+      raise MissingHeaderException if @header.nil? || @header.length == 0
       if @first
         @first = false
       else
