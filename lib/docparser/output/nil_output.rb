@@ -6,12 +6,16 @@ module DocParser
     # @!visibility private
 
     def initialize
+      @rowcount = 0
     end
 
     def close
     end
 
     def write_row(row)
+    end
+
+    def add_row(row)
     end
   end
 end

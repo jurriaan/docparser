@@ -11,6 +11,7 @@ module DocParser
 
     def header
       write_row @header
+      @rowcount += 1
     end
 
     def write_row(row)

@@ -28,15 +28,15 @@ module DocParser
     end
 
     def header=(row)
-      @outputs.each { |out|  out.header = row.flatten }
+      @outputs.each { |out|  out.header = row }
     end
 
     def add_row(row)
-      @outputs.each { |out|  out.add_row row.flatten }
+      @outputs.each { |out|  out.add_row row }
     end
 
     def rowcount
-      @outputs.min { |out| out.rowcount }.rowcount
+      @outputs.map { |out| out.rowcount }.min
     end
 
     def close

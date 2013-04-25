@@ -13,6 +13,7 @@ module DocParser
     end
 
     def header
+      @rowcount += 1
       write_row @header
     end
 
@@ -23,6 +24,10 @@ module DocParser
     def footer
       @sheet.add_table "A1:#{@sheet.cells.last.r}", name: 'Data'
       @package.serialize @filename
+    end
+
+    def rowcount
+      @sheet.rows.length
     end
   end
 end

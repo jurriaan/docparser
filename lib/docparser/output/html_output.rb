@@ -60,6 +60,7 @@ module DocParser
     end
 
     def header
+      @rowcount += 1
       @file << '<thead><tr>'
       @file << @header.map { |f| '<th>' + f + '</th>' }.join
       @file << "</tr></thead>\n<tbody>\n"
