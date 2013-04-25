@@ -49,7 +49,7 @@ module DocParser
 
     # Called when a row is added
     def write_row(row)
-      raise 'No row writer defined'
+      raise NotImplementedError.new('No row writer defined')
     end
 
     # Called before closing the file
