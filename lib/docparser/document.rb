@@ -66,8 +66,6 @@ module DocParser
     # Matches the HTML source using a regular expression
     def regexp(regexp)
       html.match(regexp)
-    rescue
-      nil
     end
 
     # Parses the document
@@ -79,7 +77,7 @@ module DocParser
 
     # @!visibility private
     def inspect
-      "<Document file:'#{@filename}'>"
+      "<Document file:'#{@filename}', encoding:'#{@encoding}'>"
     end
 
     alias_method :css, :xpath
