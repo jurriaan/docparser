@@ -98,7 +98,9 @@ module DocParser
     def parallel_process(&block)
       @logger.info "Starting #{@num_processes} processes"
       Parallel.map(@files, in_processes: @num_processes) do |file|
+        # :nocov: #
         parse_doc(file, &block)
+        # :nocov: #
       end.each do |result|
         result.each_with_index do |set, index|
           @resultsets[index].merge(set)

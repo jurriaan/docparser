@@ -19,8 +19,9 @@ describe DocParser do
       rows = out.scan(/(\d+) rows/).flatten
       rows.length.must_equal 5
       row_lengths = rows.group_by { |elem| elem.to_i }
-      row_lengths.length.must_equal 1
-      row_lengths.keys.first.must_equal(7 * 40) # HaD: 40 pages of 7 articles
+      row_lengths.length.must_equal 2
+      # HaD: 40 pages of 7 articles
+      row_lengths.keys.min.must_equal(7 * 40)
       out.must_match(/Done processing/)
     end
     Dir.chdir(curwd)
