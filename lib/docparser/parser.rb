@@ -47,7 +47,7 @@ module DocParser
     # @param range [Range] Range of files to process (nil means process all)
     # @param num_processes [Fixnum] Number of parallel processes
     def initialize(files: [], quiet: false, encoding: 'utf-8', parallel: true,
-                   output: ScreenOutput.new, range: nil,
+                   output: nil, range: nil,
                    num_processes: Parallel.processor_count + 1)
       @num_processes = parallel ? num_processes : 1
       @files = range ? files[range] : files
@@ -55,16 +55,18 @@ module DocParser
 
       Log4r::Logger['docparser'].level = quiet ? Log4r::ERROR : Log4r::INFO
 
-      if output.is_a? Output
-        @outputs = []
-        @outputs << output
-      elsif output.is_a?(Array) && output.all? { |o| o.is_a? Output }
-        @outputs = output
-      else
-        raise ArgumentError, 'No outputs specified'
-      end
+      unless output.nil?
+        if output.is_a? Output
+          @outputs = []
+          @outputs << output
+        elsif output.is_a?(Array) && output.all? { |o| o.is_a? Output }
+          @outputs = output
+        else
+          raise ArgumentError, 'Invalid outputs specified'
+        end
 
-      @resultsets = Array.new(@outputs.length) { Set.new }
+        @resultsets = Array.new(@outputs.length) { Set.new }
+      end
 
       @logger =  Log4r::Logger.new('docparser::parser')
       @logger.info "DocParser v#{VERSION}"
@@ -95,7 +97,7 @@ module DocParser
 
       @logger.info 'Processing finished'
 
-      write_to_outputs
+      write_to_outputs if @outputs
 
       @logger.info sprintf('Done processing in %.2fs.', Time.now - start_time)
     end
