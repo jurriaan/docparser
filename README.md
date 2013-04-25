@@ -39,7 +39,7 @@ Or install it yourself as:
 
 ## Usage
 
-See example.rb
+See [example.rb](https://github.com/jurriaan/docparser/blob/master/example.rb)
 
 ## Todo
 
