@@ -12,4 +12,5 @@ gem 'log4r'
 group :test do
   gem 'rake'
   gem 'rubocop'
+  gem 'simplecov', :require => false
 end
