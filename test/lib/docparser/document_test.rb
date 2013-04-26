@@ -113,6 +113,15 @@ describe DocParser::Document do
     @test_doc.results.must_equal [[['test'], ['test', 'test2']]]
   end
 
+  it 'should be possible to not use outputs' do
+    parser = Class.new do
+      define_method(:outputs) { [] }
+    end.new
+    test_doc = DocParser::Document.new(filename: @test_doc_path,
+                                        parser: parser)
+    test_doc.html.must_include('Test HTML')
+  end
+
   it 'should be possible to specify outputs directly' do
     @test_doc.add_row ['test!'], output: $output
     @test_doc.results.must_equal [[['test!']]]
