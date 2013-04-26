@@ -34,7 +34,7 @@ module DocParser
       @file.close unless @file.closed?
       @logger.info "Finished writing"
       size = File.size(@filename) / 1024.0
-      @logger.info sprintf("%s: %d rows, %.2f KiB", @filename, @rowcount, size)
+      @logger.info sprintf("%s: %d rows, %.2f KiB", @filename, rowcount, size)
     end
 
     # Called after the file is opened
