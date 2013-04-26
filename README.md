@@ -1,6 +1,7 @@
 # DocParser
 
-[![Gem Version](https://badge.fury.io/rb/docparser.png)](http://badge.fury.io/rb/docparser) [![Build Status](https://travis-ci.org/jurriaan/docparser.png?branch=master)](https://travis-ci.org/jurriaan/docparser) [![Dependency Status](https://gemnasium.com/jurriaan/docparser.png)](https://gemnasium.com/jurriaan/docparser)
+[![Gem Version](https://badge.fury.io/rb/docparser.png)](http://badge.fury.io/rb/docparser) [![Build Status](https://travis-ci.org/jurriaan/docparser.png?branch=master)](https://travis-ci.org/jurriaan/docparser) [![Dependency Status](https://gemnasium.com/jurriaan/docparser.png)](https://gemnasium.com/jurriaan/docparser) [![Coverage Status](https://coveralls.io/repos/jurriaan/docparser/badge.png?branch=master)](https://coveralls.io/r/jurriaan/docparser)
+
 
 DocParser is a web scraping/screen scraping tool.
 
