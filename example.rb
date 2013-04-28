@@ -4,7 +4,6 @@
 #
 $LOAD_PATH.unshift __dir__
 require File.expand_path('lib/docparser.rb', __dir__)
-require 'tmpdir'
 
 include DocParser
 output = MultiOutput.new(filename: 'hackaday')
