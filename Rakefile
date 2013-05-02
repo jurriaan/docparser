@@ -1,5 +1,6 @@
-require "bundler/gem_tasks"
+require 'bundler/gem_tasks'
 require 'rake/testtask'
+require 'rubocop'
 
 Rake::TestTask.new do |t|
   t.libs << 'lib/docparser'
@@ -10,7 +11,10 @@ end
 task test: :rubocop
 
 task :rubocop do
-  sh 'rubocop'
+  puts "Running Rubocop #{Rubocop::Version::STRING}"
+  args = FileList['**/*.rb', 'Rakefile', 'docparser.gemspec']
+  cli = Rubocop::CLI.new
+  fail unless cli.run(args) == 0
 end
 
-task :default => :test
+task default: :test
