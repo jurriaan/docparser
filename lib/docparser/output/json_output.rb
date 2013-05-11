@@ -1,4 +1,4 @@
-require 'json'
+require 'multi_json'
 module DocParser
   # The JSONOutput class generates a JSON file containing all rows as seperate
   # Array elements
@@ -25,7 +25,7 @@ module DocParser
           @doc[@header[counter]] = ''
         end
       end
-      @file << JSON.dump(@doc)
+      @file << MultiJson.dump(@doc)
     end
 
     def footer
