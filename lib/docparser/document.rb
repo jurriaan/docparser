@@ -5,6 +5,10 @@ module DocParser
   # @see Output
   class Document
     attr_reader :filename, :doc, :encoding, :results
+
+    # @return [String] the source of the document
+    attr_reader :html
+
     def initialize(filename: nil, encoding: 'utf-8', parser: nil)
       if encoding == 'utf-8'
         encodingstring = 'r:utf-8'
@@ -35,11 +39,6 @@ module DocParser
     # @return [String] the title of the document
     def title
       @title ||= xpath_content('//head/title')
-    end
-
-    # @return [String] the source of the document
-    def html
-      @html
     end
 
     # Executes a xpath query
