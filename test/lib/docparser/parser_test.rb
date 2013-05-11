@@ -162,7 +162,6 @@ describe DocParser::Parser do
     mock_output2.verify.must_equal true
   end
 
-
   it 'should support parallel processing' do
     mock_output = SimpleMock.new DocParser::NilOutput.new
     mock_output.expect :close, nil
@@ -193,5 +192,4 @@ describe DocParser::Parser do
     $method_id.must_equal :fork
     mock_output.verify.must_equal true
   end
-
 end

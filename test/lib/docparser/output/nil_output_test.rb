@@ -20,8 +20,8 @@ describe DocParser::NilOutput do
     output = DocParser::NilOutput.new
     output.header = 'test', 'the', 'header'
     output.rowcount.must_equal 0
-    output.add_row ['aap', 'noot', 'mies']
-    output.add_row ['aap', 'noot', 'mies']
+    output.add_row %w(aap noot mies)
+    output.add_row %w(aap noot mies)
     output.rowcount.must_equal 0
   end
 end

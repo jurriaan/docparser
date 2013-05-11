@@ -36,7 +36,7 @@ describe DocParser::MultiOutput do
       filename = File.join(dir, 'test')
       output = DocParser::MultiOutput.new(filename: filename)
       -> do
-        output.add_row ['aap', 'noot', 'mies']
+        output.add_row %w(aap noot mies)
       end.must_raise(DocParser::MissingHeaderException)
     end
   end
@@ -47,8 +47,8 @@ describe DocParser::MultiOutput do
       output = DocParser::MultiOutput.new(filename: filename)
       output.header = 'test', 'the', 'header'
       output.rowcount.must_equal 0
-      output.add_row ['aap', 'noot', 'mies']
-      output.add_row ['aap', 'noot', 'mies']
+      output.add_row %w(aap noot mies)
+      output.add_row %w(aap noot mies)
       output.rowcount.must_equal 2
     end
   end
@@ -57,7 +57,7 @@ describe DocParser::MultiOutput do
     Dir.mktmpdir do |dir|
       filename = File.join(dir, 'test')
       output = DocParser::MultiOutput.new(filename: filename)
-      methods = [:add_row, :header=, :close]
+      methods = %i(add_row header= close)
       outputs = output.instance_variable_get(:@outputs)
       outputs.map! do |o|
         SimpleMock.new o

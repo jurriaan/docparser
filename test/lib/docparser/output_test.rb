@@ -32,7 +32,7 @@ describe DocParser::Output do
         output.header = 'test', 'the', 'header'
       end
       header = output.instance_variable_get(:@header)
-      header.must_equal ['test', 'the', 'header']
+      header.must_equal %w(test the header)
       $method_id.must_equal :header
     end
   end
@@ -75,7 +75,6 @@ describe DocParser::Output do
   end
 
   it 'should raise a NotImplementedError on write_row' do
-
     Dir.mktmpdir do |dir|
       filename = File.join(dir, 'test.csv')
       output = DocParser::Output.new(filename: filename)

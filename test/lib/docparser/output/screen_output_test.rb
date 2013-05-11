@@ -20,18 +20,17 @@ describe DocParser::ScreenOutput do
     output = DocParser::ScreenOutput.new
     output.header = 'test', 'the', 'header'
     output.rowcount.must_equal 0
-    output.add_row ['aap', 'noot', 'mies']
-    output.add_row ['aap', 'noot', 'mies']
+    output.add_row %w(aap noot mies)
+    output.add_row %w(aap noot mies)
     output.rowcount.must_equal 2
   end
 
   it 'must have a header' do
     output = DocParser::ScreenOutput.new
     -> do
-      output.add_row ['aap', 'noot', 'mies']
+      output.add_row %w(aap noot mies)
     end.must_raise(DocParser::MissingHeaderException)
   end
-
 
   it 'must output the data after close' do
     $out = StringIO.new
@@ -43,8 +42,8 @@ describe DocParser::ScreenOutput do
       end
     end.new
     output.header = 'test', 'the', 'header'
-    output.add_row ['aap1', '', 'mies']
-    output.add_row ['aap2', 'mies1']
+    output.add_row ['aap1' , '', 'mies']
+    output.add_row %w(aap2 mies1)
     output.close
     out = $out.string
     out.must_include 'header'

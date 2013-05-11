@@ -31,7 +31,7 @@ describe DocParser::XLSXOutput do
     Dir.mktmpdir do |dir|
       filename = File.join(dir, 'test.xlsx')
       output = DocParser::XLSXOutput.new(filename: filename)
-      output.add_row ['aap', 'noot', 'mies']
+      output.add_row %w(aap noot mies)
       output.add_row ['aap', 'noot', 'mies;']
       output.close
       sheet = output.instance_variable_get(:@sheet)
@@ -45,8 +45,8 @@ describe DocParser::XLSXOutput do
       output = DocParser::XLSXOutput.new(filename: filename)
       output.header = 'test', 'the', 'header'
       output.rowcount.must_equal 0
-      output.add_row ['aap', 'noot', 'mies']
-      output.add_row ['aap', 'noot', 'mies']
+      output.add_row %w(aap noot mies)
+      output.add_row %w(aap noot mies)
       output.rowcount.must_equal 2
     end
   end

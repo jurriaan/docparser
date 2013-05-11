@@ -31,7 +31,7 @@ describe DocParser::YAMLOutput do
       filename = File.join(dir, 'test.yml')
       output = DocParser::YAMLOutput.new(filename: filename)
       -> do
-        output.add_row ['aap', 'noot', 'mies']
+        output.add_row %w(aap noot mies)
       end.must_raise(DocParser::MissingHeaderException)
     end
   end
@@ -41,9 +41,9 @@ describe DocParser::YAMLOutput do
       filename = File.join(dir, 'test.csv')
       output = DocParser::YAMLOutput.new(filename: filename)
       output.header = 'test', 'the', 'header'
-      output.add_row ['a', 'b', 'c']
-      output.add_row ['aap', 'noot', 'mies"']
-      output.add_row ['aap', 'noot'] # testing empty column
+      output.add_row %w(a b c)
+      output.add_row %w(aap noot mies")
+      output.add_row %w(aap noot) # testing empty column
       output.close
       open(filename).read.must_equal <<-YAMLEND
 ---
@@ -68,8 +68,8 @@ YAMLEND
       output = DocParser::YAMLOutput.new(filename: filename)
       output.header = 'test', 'the', 'header'
       output.rowcount.must_equal 0
-      output.add_row ['aap', 'noot', 'mies']
-      output.add_row ['aap', 'noot', 'mies']
+      output.add_row %w(aap noot mies)
+      output.add_row %w(aap noot mies)
       output.rowcount.must_equal 2
     end
   end
