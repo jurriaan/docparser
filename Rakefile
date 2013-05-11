@@ -1,6 +1,8 @@
 require 'bundler/gem_tasks'
 require 'rake/testtask'
 require 'rubocop'
+require 'yard'
+YARD::Rake::YardocTask.new
 
 Rake::TestTask.new do |t|
   t.libs << 'lib/docparser'
