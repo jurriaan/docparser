@@ -17,6 +17,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(/^bin\//) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(/^(test|spec|features)\//)
   spec.require_paths = ['lib']
+  spec.extra_rdoc_files = ['README.md', 'LICENSE']
 
   spec.add_runtime_dependency 'nokogiri', '~> 1.5.9'
   spec.add_runtime_dependency 'parallel', '~> 0.6.4'

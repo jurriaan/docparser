@@ -110,7 +110,7 @@ describe DocParser::Document do
   it 'should add the row to the results' do
     @test_doc.add_row ['test']
     @test_doc.add_row 'test', 'test2'
-    @test_doc.results.must_equal [[['test'], ['test', 'test2']]]
+    @test_doc.results.must_equal [[%w(test), %w(test test2)]]
   end
 
   it 'should be possible to not use outputs' do

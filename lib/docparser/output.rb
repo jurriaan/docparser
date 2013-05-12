@@ -57,6 +57,6 @@ module DocParser
     end
   end
 
-  class MissingHeaderException < StandardError
-  end
+  # MissingHeaderException gets thrown if a required header is missing.
+  class MissingHeaderException < StandardError; end
 end
