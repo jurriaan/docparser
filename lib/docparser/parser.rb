@@ -97,7 +97,12 @@ module DocParser
 
     def parallel_process(&block)
       @logger.info "Starting #{@num_processes} processes"
-      Parallel.map(@files, in_processes: @num_processes) do |file|
+      if defined?(RUBY_ENGINE) && RUBY_ENGINE != 'ruby'
+        options = { in_threads: @num_processes }
+      else
+        options = { in_processes: @num_processes }
+      end
+      Parallel.map(@files, options) do |file|
         # :nocov: #
         parse_doc(file, &block)
         # :nocov: #
