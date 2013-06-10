@@ -30,7 +30,7 @@ describe DocParser::YAMLOutput do
     Dir.mktmpdir do |dir|
       filename = File.join(dir, 'test.yml')
       output = DocParser::YAMLOutput.new(filename: filename)
-      -> do
+      lambda do
         output.add_row %w(aap noot mies)
       end.must_raise(DocParser::MissingHeaderException)
     end

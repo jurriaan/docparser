@@ -76,7 +76,7 @@ describe DocParser::Parser do
   end
 
   it 'should give an Exception if output is not supported' do
-    -> do
+    lambda do
       DocParser::Parser.new(quiet: true, output: 1)
     end.must_raise(ArgumentError)
   end

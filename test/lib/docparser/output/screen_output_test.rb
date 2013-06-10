@@ -27,7 +27,7 @@ describe DocParser::ScreenOutput do
 
   it 'must have a header' do
     output = DocParser::ScreenOutput.new
-    -> do
+    lambda do
       output.add_row %w(aap noot mies)
     end.must_raise(DocParser::MissingHeaderException)
   end

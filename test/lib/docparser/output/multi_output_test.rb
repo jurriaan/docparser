@@ -35,7 +35,7 @@ describe DocParser::MultiOutput do
     Dir.mktmpdir do |dir|
       filename = File.join(dir, 'test')
       output = DocParser::MultiOutput.new(filename: filename)
-      -> do
+      lambda do
         output.add_row %w(aap noot mies)
       end.must_raise(DocParser::MissingHeaderException)
     end
