@@ -30,7 +30,7 @@ describe DocParser::Parser do
     logger.level.must_equal Log4r::ERROR
     parser = DocParser::Parser.new(quiet: false)
     logger.level.must_equal Log4r::INFO
-    parser = DocParser::Parser.new()
+    parser = DocParser::Parser.new
     logger.level.must_equal Log4r::INFO
     logger.outputters.push old_output
   end
