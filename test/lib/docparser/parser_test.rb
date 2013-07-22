@@ -70,7 +70,7 @@ describe DocParser::Parser do
                                    files: [file.path],
                                    parallel: false)
     parser.parse! do
-      $encoding = self.encoding
+      $encoding = encoding
     end
     $encoding.must_equal 'iso-8859-1'
   end
