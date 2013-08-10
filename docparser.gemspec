@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'axlsx', '~> 1.3.6'
   spec.add_runtime_dependency 'terminal-table', '~> 1.4.5'
   spec.add_runtime_dependency 'pageme', '~> 0.0.3'
-  spec.add_runtime_dependency 'multi_json', '~> 1.7'
+  spec.add_runtime_dependency 'multi_json', '~> 1.7.8'
   spec.add_runtime_dependency 'log4r', '~> 1.1.10'
 
   spec.add_development_dependency 'yard'
