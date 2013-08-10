@@ -2,9 +2,8 @@ module DocParser
   # This Output is used for testing purposes.
 
   # @see Output
+  # @!visibility private
   class NilOutput < Output
-    # @!visibility private
-
     def initialize
       @rowcount = 0
     end

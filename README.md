@@ -32,11 +32,11 @@ Add this line to your application's Gemfile:
 
 And then execute:
 
-    $ bundle
+    bundle
 
-Or install it yourself as:
+Or install it yourself using:
 
-    $ gem install docparser
+    gem install docparser
 
 ## Usage
 
@@ -44,8 +44,7 @@ See [example.rb](https://github.com/jurriaan/docparser/blob/master/example.rb)
 
 ## Todo
 
-- Tests
-- Better examples
+- Better examples and documentation
 
 ## Contributing
 
@@ -58,3 +57,7 @@ See [example.rb](https://github.com/jurriaan/docparser/blob/master/example.rb)
 ## Contributors
 
 - [Jurriaan Pruis](https://github.com/jurriaan)
+
+## Thanks
+
+- [randym](https://github.com/randym) - for providing the [axlsx](https://github.com/randym/axlsx) gem

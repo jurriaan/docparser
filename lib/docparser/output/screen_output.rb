@@ -3,7 +3,8 @@ require 'pageme'
 module DocParser
   # This Output can be used for debugging purposes.
 
-  # It pipes all rows through a pager
+  # This output sends the results directly to the terminal and pipes all rows
+  # through a pager
   # @see Output
   class ScreenOutput < Output
     # @!visibility private
