@@ -1,4 +1,4 @@
-require 'multi_json'
+require 'json'
 module DocParser
   # The JSONOutput class generates a JSON file containing all rows as seperate
   # Array elements
@@ -7,25 +7,19 @@ module DocParser
     # @!visibility private
     def open_file
       @file << '['
-      @first = true
       @doc = {}
     end
 
     def write_row(row)
       raise MissingHeaderException if @header.nil? || @header.length == 0
-      if @first
-        @first = false
-      else
-        @file << ','
-      end
+
+      @file << ',' unless @file.pos <= 1
+
       0.upto(@header.length - 1) do |counter|
-        if row.length > counter
-          @doc[@header[counter]] = row[counter]
-        else
-          @doc[@header[counter]] = ''
-        end
+        @doc[@header[counter]] = row.length > counter ? row[counter] : ''
       end
-      @file << MultiJson.dump(@doc)
+
+      @file << JSON.generate(@doc)
     end
 
     def footer

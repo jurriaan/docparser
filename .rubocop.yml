@@ -1,9 +1,3 @@
-# Avoid methods longer than 10 lines of code
-MethodLength:
-  Enabled: true
-  CountComments: false  # count full line comments?
-  Max: 20
-
 # Temporary turn this off
 # Avoid parameter lists longer than three or four parameters.
 ParameterLists:

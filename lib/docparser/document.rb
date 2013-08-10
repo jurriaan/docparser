@@ -1,4 +1,4 @@
-require 'set'
+require 'nokogiri'
 module DocParser
   # The Document class loads and parses the files.
   # @see Parser
@@ -10,22 +10,13 @@ module DocParser
     attr_reader :html
 
     def initialize(filename: nil, encoding: 'utf-8', parser: nil)
-      if encoding == 'utf-8'
-        encodingstring = 'r:utf-8'
-      else
-        encodingstring = "r:#{encoding}:utf-8"
-      end
       @logger = Log4r::Logger.new('docparser::document')
       @logger.debug { "Parsing #{filename}" }
-      open(filename, encodingstring) do |f|
-        @html = f.read
-        @logger.warn "#{filename} is empty" if @html.empty?
-        @doc = Nokogiri(@html)
-      end
       @encoding = encoding
       @parser = parser
       @filename = filename
       @results = Array.new(@parser.outputs ? @parser.outputs.length : 0) { [] }
+      read_file
     end
 
     # Adds a row to an output
@@ -77,6 +68,17 @@ module DocParser
     # @!visibility private
     def inspect
       "<Document file:'#{@filename}', encoding:'#{@encoding}'>"
+    end
+
+    private
+
+    def read_file
+      encodingstring = @encoding == 'utf-8' ? 'r:utf-8' : "r:#{encoding}:utf-8"
+      open(@filename, encodingstring) do |f|
+        @html = f.read
+        @logger.warn "#{filename} is empty" if @html.empty?
+        @doc = Nokogiri(@html)
+      end
     end
 
     alias_method :css, :xpath

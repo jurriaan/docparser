@@ -4,7 +4,6 @@ require 'bundler/setup'
 require 'version'
 require 'output'
 require 'document'
-require 'nokogiri'
 require 'open-uri'
 require 'parallel'
 require 'set'
@@ -55,29 +54,17 @@ module DocParser
 
       Log4r::Logger['docparser'].level = quiet ? Log4r::ERROR : Log4r::INFO
 
-      unless output.nil?
-        if output.is_a? Output
-          @outputs = []
-          @outputs << output
-        elsif output.is_a?(Array) && output.all? { |o| o.is_a? Output }
-          @outputs = output
-        else
-          raise ArgumentError, 'Invalid outputs specified'
-        end
-
-        @resultsets = Array.new(@outputs.length) { Set.new }
-      end
+      initialize_outputs output
 
       @logger =  Log4r::Logger.new('docparser::parser')
-      @logger.info "DocParser v#{VERSION}"
-      @logger.info "#{@files.length} files loaded (encoding: #{@encoding})"
+      @logger.info "DocParser v#{VERSION} loaded"
     end
 
     #
     # Parses the `files`
     #
     def parse!(&block)
-      @logger.info "Parsing #{@files.length} files."
+      @logger.info "Parsing #{@files.length} files (encoding: #{@encoding})."
       start_time = Time.now
 
       if @num_processes > 1
@@ -88,21 +75,30 @@ module DocParser
 
       @logger.info 'Processing finished'
 
-      write_to_outputs if @outputs
+      write_to_outputs
 
       @logger.info sprintf('Done processing in %.2fs.', Time.now - start_time)
     end
 
     private
 
+    def initialize_outputs(output)
+      @outputs = []
+      if output.is_a? Output
+        @outputs << output
+      elsif output.is_a?(Array) && output.all? { |o| o.is_a? Output }
+        @outputs = output
+      elsif !output.nil?
+        raise ArgumentError, 'Invalid outputs specified'
+      end
+
+      @resultsets = Array.new(@outputs.length) { Set.new }
+    end
+
     def parallel_process(&block)
       @logger.info "Starting #{@num_processes} processes"
-      if defined?(RUBY_ENGINE) && RUBY_ENGINE != 'ruby'
-        options = { in_threads: @num_processes }
-      else
-        options = { in_processes: @num_processes }
-      end
-      Parallel.map(@files, options) do |file|
+      option = RUBY_ENGINE == 'ruby' ? :in_processes : :in_threads
+      Parallel.map(@files, { option => @num_processes }) do |file|
         # :nocov: #
         parse_doc(file, &block)
         # :nocov: #

@@ -7,24 +7,18 @@ module DocParser
   # @see XLSXOutput
   # @see Output
   class MultiOutput < Output
+    # All the possible outputs
+    OUTPUT_TYPES = { csv: CSVOutput, html: HTMLOutput, yml: YAMLOutput,
+                     xlsx: XLSXOutput, json: JSONOutput }
+
     # @!visibility private
     def initialize(**options)
       @outputs = []
-      csvoptions = options.clone
-      csvoptions[:filename] += '.csv'
-      htmloptions = options.clone
-      htmloptions[:filename] += '.html'
-      yamloptions = options.clone
-      yamloptions[:filename] += '.yml'
-      xlsxoptions = options.clone
-      xlsxoptions[:filename] += '.xlsx'
-      jsonoptions = options.clone
-      jsonoptions[:filename] += '.json'
-      @outputs << CSVOutput.new(csvoptions)
-      @outputs << HTMLOutput.new(htmloptions)
-      @outputs << YAMLOutput.new(yamloptions)
-      @outputs << XLSXOutput.new(xlsxoptions)
-      @outputs << JSONOutput.new(jsonoptions)
+      OUTPUT_TYPES.each do |type, output|
+        output_options = options.clone
+        output_options[:filename] += '.' + type.to_s
+        @outputs << output.new(output_options)
+      end
     end
 
     def header=(row)
