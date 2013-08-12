@@ -35,12 +35,12 @@ describe DocParser::ScreenOutput do
   it 'must output the data after close' do
     $out = StringIO.new
     output = Class.new DocParser::ScreenOutput do
-               def page(*args, &p)
-                 args << p
-                 args.compact!
-                 page_to $out, args
-               end
-             end.new
+      def page(*args, &p)
+        args << p
+        args.compact!
+        page_to $out, args
+      end
+    end.new
     output.header = 'test', 'the', 'header'
     output.add_row ['aap1' , '', 'mies']
     output.add_row %w(aap2 mies1)

@@ -4,8 +4,8 @@ describe DocParser::Document do
     Log4r::Logger['docparser'].level = Log4r::INFO
     $output = DocParser::NilOutput.new
     @parser = Class.new do
-                define_method(:outputs) { [$output] }
-              end.new
+      define_method(:outputs) { [$output] }
+    end.new
     @test_doc_path = File.join($SUPPORT_DIR, 'test_html.html')
     @test_doc = DocParser::Document.new(filename: @test_doc_path,
                                         parser: @parser)
@@ -115,8 +115,8 @@ describe DocParser::Document do
 
   it 'should be possible to not use outputs' do
     parser = Class.new do
-               define_method(:outputs) { [] }
-             end.new
+      define_method(:outputs) { [] }
+    end.new
     test_doc = DocParser::Document.new(filename: @test_doc_path,
                                         parser: parser)
     test_doc.html.must_include('Test HTML')
@@ -131,8 +131,8 @@ describe DocParser::Document do
     output = DocParser::NilOutput.new
     output2 = DocParser::NilOutput.new
     parser = Class.new do
-               define_method(:outputs) { [output, output2] }
-             end.new
+      define_method(:outputs) { [output, output2] }
+    end.new
     test_doc = DocParser::Document.new(filename: @test_doc_path,
                                       parser: parser)
     test_doc.add_row ['a'], output: 1
