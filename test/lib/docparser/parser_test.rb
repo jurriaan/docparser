@@ -24,6 +24,7 @@ describe DocParser::Parser do
   end
 
   it 'should set logger level depending on the quiet setting' do
+    # rubocop : disable UselessAssignment
     parser = DocParser::Parser.new(quiet: true)
     logger = Log4r::Logger['docparser']
     old_output = logger.outputters.pop
@@ -33,6 +34,7 @@ describe DocParser::Parser do
     parser = DocParser::Parser.new
     logger.level.must_equal Log4r::INFO
     logger.outputters.push old_output
+    # rubocop : enable UselessAssignment
   end
 
   it 'should only process the files in range' do

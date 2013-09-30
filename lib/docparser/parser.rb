@@ -23,8 +23,6 @@ output = Log4r::StdoutOutputter.new('docparser')
 output.formatter = Log4r::PatternFormatter.new(pattern: '[%l %C] %d :: %m')
 logger.outputters = output
 logger.level = Log4r::INFO
-logger = nil
-output = nil
 
 # The DocParser namespace
 # See README.md for information on using DocParser

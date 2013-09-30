@@ -2,3 +2,5 @@
 # Avoid parameter lists longer than three or four parameters.
 ParameterLists:
   Enabled: false
+MultilineBlockChain:
+  Enabled: false

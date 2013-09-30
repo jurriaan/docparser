@@ -118,7 +118,7 @@ describe DocParser::Document do
       define_method(:outputs) { [] }
     end.new
     test_doc = DocParser::Document.new(filename: @test_doc_path,
-                                        parser: parser)
+                                       parser: parser)
     test_doc.html.must_include('Test HTML')
   end
 
@@ -134,7 +134,7 @@ describe DocParser::Document do
       define_method(:outputs) { [output, output2] }
     end.new
     test_doc = DocParser::Document.new(filename: @test_doc_path,
-                                      parser: parser)
+                                       parser: parser)
     test_doc.add_row ['a'], output: 1
     test_doc.add_row ['b'], output: 0
     test_doc.results.must_equal [[['b']], [['a']]]
