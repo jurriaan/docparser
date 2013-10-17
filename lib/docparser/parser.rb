@@ -86,7 +86,7 @@ module DocParser
       elsif output.is_a?(Array) && output.all? { |o| o.is_a? Output }
         @outputs = output
       elsif !output.nil?
-        raise ArgumentError, 'Invalid outputs specified'
+        fail ArgumentError, 'Invalid outputs specified'
       end
 
       @resultsets = Array.new(@outputs.length) { Set.new }

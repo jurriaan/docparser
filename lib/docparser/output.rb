@@ -9,7 +9,7 @@ module DocParser
     def initialize(filename: filename)
       @rowcount = 0
       @filename = filename
-      raise ArgumentError, 'Please specify a filename' if filename.empty?
+      fail ArgumentError, 'Please specify a filename' if filename.empty?
       @file = open filename, 'w'
       classname = self.class.name.split('::').last
       @logger = Log4r::Logger.new("docparser::output::#{classname}")
@@ -49,7 +49,7 @@ module DocParser
 
     # Called when a row is added
     def write_row(row)
-      raise NotImplementedError.new('No row writer defined')
+      fail NotImplementedError, 'No row writer defined'
     end
 
     # Called before closing the file
