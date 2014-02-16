@@ -2,7 +2,6 @@ require 'csv'
 module DocParser
   # The CSVOutput class generates a CSV file containing all rows
   # @see Output
-
   class CSVOutput < Output
     # @!visibility private
     def open_file

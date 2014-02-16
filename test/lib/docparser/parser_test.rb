@@ -1,7 +1,7 @@
 require_relative '../../test_helper'
 describe DocParser::Parser do
   before do
-    SimpleCov.at_exit { }
+    SimpleCov.at_exit {}
   end
 
   after do

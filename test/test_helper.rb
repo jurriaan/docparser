@@ -8,6 +8,7 @@ SimpleCov.start do
   # add_filter '/test/'
 end
 require 'minitest/autorun'
+require 'minitest/hell'
 require 'minitest/pride'
 require 'tempfile'
 require 'tmpdir'
