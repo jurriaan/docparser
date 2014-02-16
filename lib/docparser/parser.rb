@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'bundler/setup'
-require 'open-uri'
 require 'parallel'
 require 'set'
 require 'log4r'
@@ -95,7 +94,7 @@ module DocParser
     def parallel_process(&block)
       @logger.info "Starting #{@num_processes} processes"
       option = RUBY_ENGINE == 'ruby' ? :in_processes : :in_threads
-      Parallel.map(@files, { option => @num_processes }) do |file|
+      Parallel.map(@files, option => @num_processes) do |file|
         # :nocov: #
         parse_doc(file, &block)
         # :nocov: #
@@ -129,6 +128,5 @@ module DocParser
         output.close
       end
     end
-
   end
 end

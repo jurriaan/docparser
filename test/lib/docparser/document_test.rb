@@ -27,12 +27,6 @@ describe DocParser::Document do
     doc.xpath_content('xmltest > test').must_equal('Character Data')
   end
 
-  it 'should read remote contents' do
-    url = 'https://gist.github.com/jurriaan/3f2750aa546e3e6719cf/raw'
-    doc = DocParser::Document.new(filename: url, parser: @parser)
-    doc.html.must_equal(open(url).read)
-  end
-
   it 'should use the correct encoding' do
     file = File.join($SUPPORT_DIR, 'test_encoding.html')
     file2 = File.join($SUPPORT_DIR, 'test_encoding2.html')
