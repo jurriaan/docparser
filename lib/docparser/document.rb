@@ -4,7 +4,17 @@ module DocParser
   # @see Parser
   # @see Output
   class Document
-    attr_reader :filename, :doc, :encoding, :results
+    # @return [String] the filename of the current document
+    attr_reader :filename
+
+    # @return [Nokogiri::HTML::Document] a reference to the Nokogiri document
+    attr_reader :doc
+
+    # @return [String] the encoding of the document
+    attr_reader :encoding
+
+    # @return [Array] the results from this document
+    attr_reader :results
 
     # @return [String] the source of the document
     attr_reader :html
