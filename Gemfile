@@ -3,7 +3,7 @@ gemspec
 source 'https://rubygems.org'
 
 group :test do
-  gem 'minitest', '~> 5.2.3'
+  gem 'minitest', '~> 5.3.0'
   gem 'coveralls', require: false
   gem 'rake'
   gem 'rubocop', '~> 0.18.1'
