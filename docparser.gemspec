@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'log4r', '~> 1.1.10'
 
   spec.add_development_dependency 'yard'
-  spec.add_development_dependency 'redcarpet'
+  spec.add_development_dependency 'kramdown', '~> 1.3.2'
   spec.add_development_dependency 'github-markup'
   spec.required_ruby_version = '>= 2.0.0'
 end
