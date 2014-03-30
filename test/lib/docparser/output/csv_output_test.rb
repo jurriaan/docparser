@@ -12,7 +12,7 @@ describe DocParser::CSVOutput do
     Dir.mktmpdir do |dir|
       filename = File.join(dir, 'test.csv')
       DocParser::CSVOutput.new(filename: filename)
-      File.exists?(filename).must_equal true
+      File.exist?(filename).must_equal true
     end
   end
 

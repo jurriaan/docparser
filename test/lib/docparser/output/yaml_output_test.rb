@@ -12,7 +12,7 @@ describe DocParser::YAMLOutput do
     Dir.mktmpdir do |dir|
       filename = File.join(dir, 'test.yml')
       DocParser::YAMLOutput.new(filename: filename)
-      File.exists?(filename).must_equal true
+      File.exist?(filename).must_equal true
     end
   end
 

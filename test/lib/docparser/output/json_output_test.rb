@@ -12,7 +12,7 @@ describe DocParser::JSONOutput do
     Dir.mktmpdir do |dir|
       filename = File.join(dir, 'test.json')
       DocParser::JSONOutput.new(filename: filename)
-      File.exists?(filename).must_equal true
+      File.exist?(filename).must_equal true
     end
   end
 

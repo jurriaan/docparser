@@ -12,7 +12,7 @@ describe DocParser::HTMLOutput do
     Dir.mktmpdir do |dir|
       filename = File.join(dir, 'test.html')
       DocParser::HTMLOutput.new(filename: filename)
-      File.exists?(filename).must_equal true
+      File.exist?(filename).must_equal true
     end
   end
 

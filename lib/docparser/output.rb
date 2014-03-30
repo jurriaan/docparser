@@ -5,7 +5,20 @@ module DocParser
     attr_reader :rowcount
 
     # Creates a new output
+    #
+    # You can assign the output to the Parser so it automatically writes all
+    # data to the file you want.
+    #
+    # Do not use this class as an output, instead use one of the classes that
+    # inherit from it
+    #
     # @param filename [String] Output filename
+    # @see Parser
+    # @see CSVOutput
+    # @see HTMLOutput
+    # @see YAMLOutput
+    # @see XLSXOutput
+    # @see MultiOutput
     def initialize(filename: filename)
       @rowcount = 0
       @filename = filename
@@ -34,7 +47,7 @@ module DocParser
       @file.close unless @file.closed?
       @logger.info 'Finished writing'
       size = File.size(@filename) / 1024.0
-      @logger.info sprintf('%s: %d rows, %.2f KiB', @filename, rowcount, size)
+      @logger.info format('%s: %d rows, %.2f KiB', @filename, rowcount, size)
     end
 
     # Called after the file is opened

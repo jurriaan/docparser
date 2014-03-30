@@ -32,7 +32,7 @@ module DocParser
     # Adds a row to an output
     def add_row(*row, output: 0)
       output = @parser.outputs.index(output) if output.is_a? Output
-      @logger.debug { "#{filename}: Adding row #{row.flatten.to_s}" }
+      @logger.debug { "#{filename}: Adding row #{row.flatten}" }
       results[output] << row.flatten
     end
 

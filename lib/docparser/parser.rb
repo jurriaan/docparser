@@ -32,7 +32,8 @@ module DocParser
     # @!visibility private
     attr_reader :outputs, :files, :num_processes, :encoding
 
-    # Creates a new parser instance
+    # Creates a new Parser instance
+    #
     # @param files [Array] An array containing URLs or paths to files
     # @param quiet [Boolean] Be quiet
     # @param encoding [String] The encoding to use for opening the files
@@ -55,9 +56,12 @@ module DocParser
       @logger.info "DocParser v#{VERSION} loaded"
     end
 
-    #
     # Parses the `files`
     #
+    # Accepts a block which is executed for each document in the Document
+    # context where you can access the content using Nokogiri.
+    #
+    # @see Document
     def parse!(&block)
       @logger.info "Parsing #{@files.length} files (encoding: #{@encoding})."
       start_time = Time.now
@@ -72,7 +76,7 @@ module DocParser
 
       write_to_outputs
 
-      @logger.info sprintf('Done processing in %.2fs.', Time.now - start_time)
+      @logger.info format('Done processing in %.2fs.', Time.now - start_time)
     end
 
     private

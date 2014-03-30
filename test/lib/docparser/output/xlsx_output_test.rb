@@ -12,7 +12,7 @@ describe DocParser::XLSXOutput do
     Dir.mktmpdir do |dir|
       filename = File.join(dir, 'test.xlsx')
       DocParser::XLSXOutput.new(filename: filename)
-      File.exists?(filename).must_equal true
+      File.exist?(filename).must_equal true
     end
   end
 

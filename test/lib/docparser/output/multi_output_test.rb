@@ -13,9 +13,9 @@ describe DocParser::MultiOutput do
       filename = File.join(dir, 'test')
       DocParser::MultiOutput.new(filename: filename)
 
-      File.exists?(filename).must_equal false
+      File.exist?(filename).must_equal false
       ['.csv', '.html', '.yml', '.xlsx', '.json'].each do |ext|
-        File.exists?(filename + ext).must_equal true
+        File.exist?(filename + ext).must_equal true
       end
     end
   end
