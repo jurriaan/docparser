@@ -87,7 +87,7 @@ module DocParser
         @outputs << output
       elsif output.is_a?(Array) && output.all? { |o| o.is_a? Output }
         @outputs = output
-      elsif !output.nil?
+      elsif output
         fail ArgumentError, 'Invalid outputs specified'
       end
 
