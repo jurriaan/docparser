@@ -8,6 +8,7 @@ module DocParser
     def open_file
       @package = Axlsx::Package.new
       @package.workbook.date1904 = false # Fix for OS X
+      @package.use_shared_strings = true # Fix for Numbers
       @sheet = @package.workbook.add_worksheet
       @file.close
     end
