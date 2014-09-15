@@ -20,12 +20,12 @@ Gem::Specification.new do |spec|
   spec.extra_rdoc_files = ['README.md', 'LICENSE']
 
   spec.add_runtime_dependency 'nokogiri', '~> 1.6.1'
-  spec.add_runtime_dependency 'parallel', '~> 1.0.0'
+  spec.add_runtime_dependency 'parallel', '~> 1.3.2'
   spec.add_runtime_dependency 'axlsx', '~> 2.0.1'
   spec.add_runtime_dependency 'log4r', '~> 1.1.10'
 
   spec.add_development_dependency 'yard'
-  spec.add_development_dependency 'kramdown', '~> 1.3.2'
+  spec.add_development_dependency 'kramdown', '~> 1.4.1'
   spec.add_development_dependency 'github-markup'
   spec.required_ruby_version = '>= 2.0.0'
 end

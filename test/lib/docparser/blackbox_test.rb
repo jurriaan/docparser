@@ -3,7 +3,7 @@ require 'open3'
 require 'shellwords'
 
 def cmd_to_sys(command)
-  Open3.popen3(command) do |stdin, stdout, stderr|
+  Open3.popen3(command) do |_stdin, stdout, stderr|
     [stdout.read, stderr.read]
   end
 end
@@ -18,7 +18,7 @@ describe DocParser do
       err.must_be_empty
       rows = out.scan(/(\d+) rows/).flatten
       rows.length.must_equal 5
-      row_lengths = rows.group_by { |elem| elem.to_i }
+      row_lengths = rows.group_by(&:to_i)
       row_lengths.length.must_equal 1
       # HaD: 40 pages of 7 articles
       row_lengths.keys.first.must_equal(7 * 40)

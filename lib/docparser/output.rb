@@ -2,7 +2,7 @@ module DocParser
   # The Output base class.
   # All Output classes inherit from this one.
   class Output
-    attr_reader :rowcount
+    attr_reader :rowcount, :filename
 
     # Creates a new output
     #
@@ -19,9 +19,11 @@ module DocParser
     # @see YAMLOutput
     # @see XLSXOutput
     # @see MultiOutput
-    def initialize(filename: filename)
+    def initialize(filename: nil, uniq: false)
       @rowcount = 0
       @filename = filename
+      @uniq = uniq
+      @uniqarr = []
       fail ArgumentError, 'Please specify a filename' if filename.empty?
       @file = open filename, 'w'
       classname = self.class.name.split('::').last
@@ -37,8 +39,10 @@ module DocParser
 
     # Adds a row
     def add_row(row)
+      return if @uniq && @uniqarr.include?(row.hash)
       @rowcount += 1
       write_row row
+      @uniqarr << row.hash
     end
 
     # Closes output and IO
@@ -61,7 +65,7 @@ module DocParser
     end
 
     # Called when a row is added
-    def write_row(row)
+    def write_row(_row)
       fail NotImplementedError, 'No row writer defined'
     end
 

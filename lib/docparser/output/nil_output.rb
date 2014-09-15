@@ -11,10 +11,10 @@ module DocParser
     def close
     end
 
-    def write_row(row)
+    def write_row(*)
     end
 
-    def add_row(row)
+    def add_row(*)
     end
   end
 end

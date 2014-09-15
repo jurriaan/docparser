@@ -30,11 +30,11 @@ module DocParser
     end
 
     def rowcount
-      @outputs.map { |out| out.rowcount }.min
+      @outputs.map(&:rowcount).min
     end
 
     def close
-      @outputs.each { |out|  out.close }
+      @outputs.each(&:close)
     end
   end
 end
