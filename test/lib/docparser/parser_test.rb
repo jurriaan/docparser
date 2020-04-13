@@ -157,21 +157,10 @@ describe DocParser::Parser do
                                    files: [testfile, testfile],
                                    parallel: true,
                                    output: mock_output)
-    # :nocov: #
-    trace = TracePoint.trace(:c_call) do |tp|
-      if tp.method_id == :fork
-        $method_id = tp.method_id
-        tp.disable
-      end
+    parser.parse! do
+      add_row title
     end
 
-    trace.enable do
-      parser.parse! do
-        add_row title
-      end
-    end
-    # :nocov: #
-    $method_id.must_equal :fork
     mock_output.verify.must_equal true
   end
 end
