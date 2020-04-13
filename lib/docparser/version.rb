@@ -4,5 +4,5 @@
 # See README.md for information on using DocParser
 module DocParser
   # The current version of DocParser
-  VERSION = '0.2.3'
+  VERSION = '0.3.0'
 end
