@@ -13,7 +13,7 @@ output.header = 'Title', 'Author', 'Publication date', 'URL', 'Summary'
 files = Dir[File.join(__dir__, 'test/support/hackaday/*.html')]
 parser = Parser.new(files: files, parallel: false, output: output)
 parser.parse! do
-  css('#content .post') do |post|
+  elements('#content .post').each do |post|
     title_el = post.search('.entry-title a').first
     title = title_el.content
     author = post.search('.post-info .author .fn a').first.content
