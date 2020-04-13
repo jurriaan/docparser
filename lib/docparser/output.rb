@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DocParser
   # The Output base class.
   # All Output classes inherit from this one.
@@ -24,7 +26,8 @@ module DocParser
       @filename = filename
       @uniq = uniq
       @uniqarr = []
-      fail ArgumentError, 'Please specify a filename' if filename.empty?
+      raise ArgumentError, 'Please specify a filename' if filename.empty?
+
       @file = open filename, 'w'
       classname = self.class.name.split('::').last
       @logger = Log4r::Logger.new("docparser::output::#{classname}")
@@ -40,6 +43,7 @@ module DocParser
     # Adds a row
     def add_row(row)
       return if @uniq && @uniqarr.include?(row.hash)
+
       @rowcount += 1
       write_row row
       @uniqarr << row.hash
@@ -66,12 +70,11 @@ module DocParser
 
     # Called when a row is added
     def write_row(_row)
-      fail NotImplementedError, 'No row writer defined'
+      raise NotImplementedError, 'No row writer defined'
     end
 
     # Called before closing the file
-    def footer
-    end
+    def footer; end
   end
 
   # MissingHeaderException gets thrown if a required header is missing.

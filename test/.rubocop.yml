@@ -1,3 +1,7 @@
+inherit_from:
+  - ../.rubocop.yml
+  - .rubocop_todo.yml
+
 # Do not introduce global variables.
-GlobalVars:
+Style/GlobalVars:
   Enabled: false

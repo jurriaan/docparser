@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # An example of parsing hackaday.com
 # (C) 2013 Jurriaan Pruis

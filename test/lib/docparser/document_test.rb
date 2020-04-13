@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../../test_helper'
 describe DocParser::Document do
   before do
@@ -104,7 +106,7 @@ describe DocParser::Document do
   it 'should add the row to the results' do
     @test_doc.add_row ['test']
     @test_doc.add_row 'test', 'test2'
-    @test_doc.results.must_equal [[%w(test), %w(test test2)]]
+    @test_doc.results.must_equal [[%w[test], %w[test test2]]]
   end
 
   it 'should be possible to not use outputs' do
@@ -133,5 +135,4 @@ describe DocParser::Document do
     test_doc.add_row ['b'], output: 0
     test_doc.results.must_equal [[['b']], [['a']]]
   end
-
 end

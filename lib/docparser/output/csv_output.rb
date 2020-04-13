@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 module DocParser
   # The CSVOutput class generates a CSV file containing all rows

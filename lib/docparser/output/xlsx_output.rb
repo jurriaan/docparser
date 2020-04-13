@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'axlsx'
 module DocParser
   # The XLSXOutput class generates Microsoft Excel compatible .xlsx files

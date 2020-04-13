@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # DocParser
 # See README.md for information on using DocParser
 module DocParser

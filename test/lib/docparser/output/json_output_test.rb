@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../../../test_helper'
 
 describe DocParser::JSONOutput do
@@ -31,7 +33,7 @@ describe DocParser::JSONOutput do
       filename = File.join(dir, 'test.json')
       output = DocParser::JSONOutput.new(filename: filename)
       lambda do
-        output.add_row %w(aap noot mies)
+        output.add_row %w[aap noot mies]
       end.must_raise(DocParser::MissingHeaderException)
     end
   end
@@ -41,9 +43,9 @@ describe DocParser::JSONOutput do
       filename = File.join(dir, 'test.json')
       output = DocParser::JSONOutput.new(filename: filename)
       output.header = 'test', 'the', 'header'
-      output.add_row %w(a b c)
-      output.add_row %w(aap noot mies")
-      output.add_row %w(aap noot) # testing empty column
+      output.add_row %w[a b c]
+      output.add_row %w[aap noot mies"]
+      output.add_row %w[aap noot] # testing empty column
       output.close
       expected = '[{"test":"a","the":"b","header":"c"},
         {"test":"aap","the":"noot","header":"mies\""},
@@ -58,8 +60,8 @@ describe DocParser::JSONOutput do
       output = DocParser::JSONOutput.new(filename: filename)
       output.header = 'test', 'the', 'header'
       output.rowcount.must_equal 0
-      output.add_row %w(aap noot mies)
-      output.add_row %w(aap noot mies)
+      output.add_row %w[aap noot mies]
+      output.add_row %w[aap noot mies]
       output.rowcount.must_equal 2
     end
   end

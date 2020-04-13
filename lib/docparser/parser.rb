@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rubygems'
 require 'bundler/setup'
 require 'parallel'
@@ -52,7 +54,7 @@ module DocParser
 
       initialize_outputs output
 
-      @logger =  Log4r::Logger.new('docparser::parser')
+      @logger = Log4r::Logger.new('docparser::parser')
       @logger.info "DocParser v#{VERSION} loaded"
     end
 
@@ -88,7 +90,7 @@ module DocParser
       elsif output.is_a?(Array) && output.all? { |o| o.is_a? Output }
         @outputs = output
       elsif output
-        fail ArgumentError, 'Invalid outputs specified'
+        raise ArgumentError, 'Invalid outputs specified'
       end
 
       @resultsets = Array.new(@outputs.length) { Set.new }
@@ -102,9 +104,11 @@ module DocParser
         parse_doc(file, &block)
         # :nocov: #
       end.each do |result|
+        next unless @outputs
+
         result.each_with_index do |set, index|
           @resultsets[index].merge(set)
-        end if @outputs
+        end
       end
     end
 

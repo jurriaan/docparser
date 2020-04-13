@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../../test_helper'
 
 describe DocParser::Output do
@@ -32,7 +34,7 @@ describe DocParser::Output do
         output.header = 'test', 'the', 'header'
       end
       header = output.instance_variable_get(:@header)
-      header.must_equal %w(test the header)
+      header.must_equal %w[test the header]
       $method_id.must_equal :header
     end
   end

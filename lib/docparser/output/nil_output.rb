@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DocParser
   # This Output is used for testing purposes.
 
@@ -8,13 +10,10 @@ module DocParser
       @rowcount = 0
     end
 
-    def close
-    end
+    def close; end
 
-    def write_row(*)
-    end
+    def write_row(*); end
 
-    def add_row(*)
-    end
+    def add_row(*); end
   end
 end

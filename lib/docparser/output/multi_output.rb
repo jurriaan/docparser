@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DocParser
   # The MultiOutput output combines multiple outputs.
   # It creates a CSV, HTML, YAML and XLSX Output file
@@ -9,7 +11,7 @@ module DocParser
   class MultiOutput < Output
     # All the possible outputs
     OUTPUT_TYPES = { csv: CSVOutput, html: HTMLOutput, yml: YAMLOutput,
-                     xlsx: XLSXOutput, json: JSONOutput }
+                     xlsx: XLSXOutput, json: JSONOutput }.freeze
 
     # @!visibility private
     def initialize(**options)

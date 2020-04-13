@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'bundler/gem_tasks'
 require 'rake/testtask'
 require 'rubocop'
@@ -16,7 +18,7 @@ task :rubocop do
   puts "Running Rubocop #{RuboCop::Version::STRING}"
   args = FileList['**/*.rb', 'Rakefile', 'docparser.gemspec', 'Gemfile']
   cli = RuboCop::CLI.new
-  fail unless cli.run(args) == 0
+  raise unless cli.run(args).zero?
 end
 
 task default: :test

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'yaml'
 module DocParser
   # The YAMLOutput class generates a YAML file containing all rows as seperate
@@ -6,7 +8,8 @@ module DocParser
   class YAMLOutput < Output
     # @!visibility private
     def write_row(row)
-      fail MissingHeaderException if @header.nil? || @header.length == 0
+      raise MissingHeaderException if @header.nil? || @header.empty?
+
       @doc ||= {}
 
       0.upto(@header.length - 1) do |counter|

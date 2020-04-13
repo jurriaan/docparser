@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../../../test_helper'
 
 describe DocParser::YAMLOutput do
@@ -31,7 +33,7 @@ describe DocParser::YAMLOutput do
       filename = File.join(dir, 'test.yml')
       output = DocParser::YAMLOutput.new(filename: filename)
       lambda do
-        output.add_row %w(aap noot mies)
+        output.add_row %w[aap noot mies]
       end.must_raise(DocParser::MissingHeaderException)
     end
   end
@@ -41,24 +43,24 @@ describe DocParser::YAMLOutput do
       filename = File.join(dir, 'test.csv')
       output = DocParser::YAMLOutput.new(filename: filename)
       output.header = 'test', 'the', 'header'
-      output.add_row %w(a b c)
-      output.add_row %w(aap noot mies")
-      output.add_row %w(aap noot) # testing empty column
+      output.add_row %w[a b c]
+      output.add_row %w[aap noot mies"]
+      output.add_row %w[aap noot] # testing empty column
       output.close
-      open(filename).read.must_equal <<-YAMLEND
----
-test: a
-the: b
-header: c
----
-test: aap
-the: noot
-header: mies\"
----
-test: aap
-the: noot
-header: ''
-YAMLEND
+      open(filename).read.must_equal <<~YAMLEND
+        ---
+        test: a
+        the: b
+        header: c
+        ---
+        test: aap
+        the: noot
+        header: mies\"
+        ---
+        test: aap
+        the: noot
+        header: ''
+      YAMLEND
     end
   end
 
@@ -68,8 +70,8 @@ YAMLEND
       output = DocParser::YAMLOutput.new(filename: filename)
       output.header = 'test', 'the', 'header'
       output.rowcount.must_equal 0
-      output.add_row %w(aap noot mies)
-      output.add_row %w(aap noot mies)
+      output.add_row %w[aap noot mies]
+      output.add_row %w[aap noot mies]
       output.rowcount.must_equal 2
     end
   end

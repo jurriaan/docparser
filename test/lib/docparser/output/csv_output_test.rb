@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../../../test_helper'
 
 describe DocParser::CSVOutput do
@@ -30,7 +32,7 @@ describe DocParser::CSVOutput do
     Dir.mktmpdir do |dir|
       filename = File.join(dir, 'test.csv')
       output = DocParser::CSVOutput.new(filename: filename)
-      output.add_row %w(aap noot mies)
+      output.add_row %w[aap noot mies]
       output.add_row ['aap', 'noot', 'mies;']
       output.close
       open(filename).read.must_equal "aap;noot;mies\naap;noot;\"mies;\"\n"
@@ -43,8 +45,8 @@ describe DocParser::CSVOutput do
       output = DocParser::CSVOutput.new(filename: filename)
       output.header = 'test', 'the', 'header'
       output.rowcount.must_equal 0
-      output.add_row %w(aap noot mies)
-      output.add_row %w(aap noot mies)
+      output.add_row %w[aap noot mies]
+      output.add_row %w[aap noot mies]
       output.rowcount.must_equal 2
     end
   end

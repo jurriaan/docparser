@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../../../test_helper'
 
 describe DocParser::HTMLOutput do
@@ -31,7 +33,7 @@ describe DocParser::HTMLOutput do
     Dir.mktmpdir do |dir|
       filename = File.join(dir, 'test.html')
       output = DocParser::HTMLOutput.new(filename: filename)
-      output.add_row %w(aap noot mies)
+      output.add_row %w[aap noot mies]
       output.add_row ['aap', 'noot', 'mies;']
       output.close
       html = open(filename).read
@@ -47,8 +49,8 @@ describe DocParser::HTMLOutput do
       output = DocParser::HTMLOutput.new(filename: filename)
       output.header = 'test', 'the', 'header'
       output.rowcount.must_equal 0
-      output.add_row %w(aap noot mies)
-      output.add_row %w(aap noot mies)
+      output.add_row %w[aap noot mies]
+      output.add_row %w[aap noot mies]
       output.rowcount.must_equal 2
       output.close
       open(filename).read.must_include('<p>2 rows</p>')

@@ -1,6 +1,18 @@
+inherit_from: .rubocop_todo.yml
+
 # Temporary turn this off
 # Avoid parameter lists longer than three or four parameters.
-ParameterLists:
+Metrics/ParameterLists:
   Enabled: false
-MultilineBlockChain:
+Style/MultilineBlockChain:
   Enabled: false
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+Style/HashEachMethods:
+  Enabled: true
+Lint/RaiseException:
+  Enabled: true
+Lint/StructNewOverride:
+  Enabled: true

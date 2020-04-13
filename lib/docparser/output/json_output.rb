@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'json'
 module DocParser
   # The JSONOutput class generates a JSON file containing all rows as seperate
@@ -11,7 +13,7 @@ module DocParser
     end
 
     def write_row(row)
-      fail MissingHeaderException if @header.nil? || @header.length == 0
+      raise MissingHeaderException if @header.nil? || @header.empty?
 
       @file << ',' unless @file.pos <= 1
 

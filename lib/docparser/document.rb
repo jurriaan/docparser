@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'nokogiri'
 module DocParser
   # The Document class loads and parses the files.
@@ -91,7 +93,7 @@ module DocParser
       end
     end
 
-    alias_method :css, :xpath
-    alias_method :css_content, :xpath_content
+    alias css xpath
+    alias css_content xpath_content
   end
 end
