@@ -5,7 +5,6 @@ gemspec
 source 'https://rubygems.org'
 
 group :test do
-  gem 'coveralls', require: false
   gem 'minitest', '~> 5.14.0'
   gem 'rake'
   gem 'rubocop', '~> 0.81.0'
