@@ -56,15 +56,15 @@ describe DocParser::Document do
   it 'should be possible to use css queries' do
     css = 'article > h1 + p'
     css_content = @test_doc.css_content(css)
-    css_element = @test_doc.css(css)
+    css_element = @test_doc.elements(css)
     css_content.must_equal('Great article it is')
     css_content.must_equal(css_element.first.content)
   end
 
   it 'should be possible to use xpath queries' do
     xpath = '//li/ancestor::article/h1'
-    xpath_content = @test_doc.xpath_content(xpath)
-    xpath_element = @test_doc.xpath(xpath)
+    xpath_content = @test_doc.element_content(xpath)
+    xpath_element = @test_doc.elements(xpath)
     xpath_content.must_equal('This is an article')
     xpath_content.must_equal(xpath_element.first.content)
   end
@@ -82,6 +82,11 @@ describe DocParser::Document do
     array.last.must_equal('This is the last paragraph')
     array2 = []
     @test_doc.xpath('//p') do |element|
+      array2 << element.content
+    end
+    array2.must_equal(array)
+    array2 = []
+    @test_doc.each_element('//p') do |element|
       array2 << element.content
     end
     array2.must_equal(array)

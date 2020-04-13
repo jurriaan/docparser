@@ -45,9 +45,14 @@ module DocParser
       @title ||= xpath_content('//head/title')
     end
 
-    # Executes a xpath query
-    def xpath(query)
-      res = @doc.search(query)
+    # Executes a xpath/css query
+    def elements(query)
+      @doc.search(query)
+    end
+
+    def each_element(query)
+      res = elements(query)
+
       if block_given?
         res.each { |el| yield el }
       else
@@ -57,7 +62,7 @@ module DocParser
 
     # Executes a xpath query and returns the content
     # @return [String] the content of the HTML node
-    def xpath_content(query)
+    def element_content(query)
       first = @doc.search(query).first
       if first.nil?
         nil
@@ -94,7 +99,9 @@ module DocParser
       end
     end
 
-    alias css xpath
-    alias css_content xpath_content
+    alias css each_element
+    alias xpath each_element
+    alias css_content element_content
+    alias xpath_content element_content
   end
 end
