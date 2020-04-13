@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require_relative '../../test_helper'
+
 describe DocParser::Document do
   before do
-    Log4r::Logger['docparser'].level = Log4r::INFO
     $output = DocParser::NilOutput.new
     @parser = Class.new do
       define_method(:outputs) { [$output] }
@@ -93,14 +93,13 @@ describe DocParser::Document do
     file.close
 
     open(file.path).read.empty?.must_equal true
-    _, err = capture_io do
-      # Switch to hijacked IO
-      Log4r::Outputter['docparser'].instance_variable_set(:@out, $stderr)
-      DocParser::Document.new(filename: file.path, parser: @parser)
-    end
-    # Restore IO
-    Log4r::Outputter['docparser'].instance_variable_set(:@out, $stderr)
-    err.must_include "#{file.path} is empty"
+    err = StringIO.new
+
+    DocParser::Document.new(filename: file.path,
+                            parser: @parser,
+                            logger: Logger.new(err))
+
+    err.string.must_include "#{file.path} is empty"
   end
 
   it 'should add the row to the results' do

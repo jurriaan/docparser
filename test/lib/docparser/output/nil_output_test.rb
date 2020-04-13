@@ -3,13 +3,6 @@
 require_relative '../../../test_helper'
 
 describe DocParser::NilOutput do
-  before do
-    Log4r::Logger['docparser'].level = Log4r::ERROR
-  end
-  after do
-    Log4r::Logger['docparser'].level = Log4r::INFO
-  end
-
   it 'should not create a file' do
     Dir.mktmpdir do |dir|
       filename = File.join(dir, '*')

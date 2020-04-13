@@ -3,9 +3,8 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'parallel'
+require 'logger'
 require 'set'
-require 'log4r'
-require 'log4r/formatter/patternformatter'
 require 'docparser/version'
 require 'docparser/output'
 require 'docparser/document'
@@ -16,13 +15,6 @@ require 'docparser/output/yaml_output.rb'
 require 'docparser/output/json_output.rb'
 require 'docparser/output/multi_output.rb'
 require 'docparser/output/nil_output.rb'
-
-Log4r.define_levels(*Log4r::Log4rConfig::LogLevels)
-logger = Log4r::Logger.new('docparser')
-output = Log4r::StdoutOutputter.new('docparser')
-output.formatter = Log4r::PatternFormatter.new(pattern: '[%l %C] %d :: %m')
-logger.outputters = output
-logger.level = Log4r::INFO
 
 # The DocParser namespace
 # See README.md for information on using DocParser
@@ -50,11 +42,11 @@ module DocParser
       @files = range ? files[range] : files
       @encoding = encoding
 
-      Log4r::Logger['docparser'].level = quiet ? Log4r::ERROR : Log4r::INFO
+      @logger = Logger.new(STDERR)
+      @logger.level = quiet ? Logger::ERROR : Logger::INFO
 
       initialize_outputs output
 
-      @logger = Log4r::Logger.new('docparser::parser')
       @logger.info "DocParser v#{VERSION} loaded"
     end
 

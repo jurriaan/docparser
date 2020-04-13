@@ -3,13 +3,6 @@
 require_relative '../../../test_helper'
 
 describe DocParser::XLSXOutput do
-  before do
-    Log4r::Logger['docparser'].level = Log4r::ERROR
-  end
-  after do
-    Log4r::Logger['docparser'].level = Log4r::INFO
-  end
-
   it 'must create a file' do
     Dir.mktmpdir do |dir|
       filename = File.join(dir, 'test.xlsx')

@@ -21,9 +21,10 @@ module DocParser
     # @return [String] the source of the document
     attr_reader :html
 
-    def initialize(filename: nil, encoding: 'utf-8', parser: nil)
-      @logger = Log4r::Logger.new('docparser::document')
-      @logger.debug { "Parsing #{filename}" }
+    def initialize(filename: nil, encoding: 'utf-8', parser: nil, logger: nil)
+      @logger = logger || Logger.new(STDERR)
+      @logger.level = Logger::INFO
+      @logger.debug("Parsing #{filename}")
       @encoding = encoding
       @parser = parser
       @filename = filename
@@ -34,7 +35,7 @@ module DocParser
     # Adds a row to an output
     def add_row(*row, output: 0)
       output = @parser.outputs.index(output) if output.is_a? Output
-      @logger.debug { "#{filename}: Adding row #{row.flatten}" }
+      @logger.debug("#{filename}: Adding row #{row.flatten}")
       results[output] << row.flatten
     end
 

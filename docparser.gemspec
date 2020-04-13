@@ -22,7 +22,6 @@ Gem::Specification.new do |spec|
   spec.extra_rdoc_files = ['README.md', 'LICENSE']
 
   spec.add_runtime_dependency 'axlsx', '~> 2.0.1'
-  spec.add_runtime_dependency 'log4r', '~> 1.1.10'
   spec.add_runtime_dependency 'nokogiri', '~> 1.10.0'
   spec.add_runtime_dependency 'parallel', '~> 1.10'
 

@@ -29,8 +29,8 @@ module DocParser
       raise ArgumentError, 'Please specify a filename' if filename.empty?
 
       @file = open filename, 'w'
-      classname = self.class.name.split('::').last
-      @logger = Log4r::Logger.new("docparser::output::#{classname}")
+      @logger = Logger.new(STDERR)
+      @logger.level = Logger::INFO
       open_file
     end
 

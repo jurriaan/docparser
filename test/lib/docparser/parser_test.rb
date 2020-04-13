@@ -10,33 +10,11 @@ describe DocParser::Parser do
     SimpleCov.at_exit do
       SimpleCov.result.format!
     end
-    Log4r::Logger['docparser'].level = Log4r::INFO
   end
 
   it 'should initialize correctly' do
     parser = DocParser::Parser.new(quiet: true)
     parser.must_be_instance_of DocParser::Parser
-  end
-
-  it 'should define a new logger' do
-    DocParser::Parser.new(quiet: true)
-    logger = Log4r::Logger['docparser::parser']
-    logger.wont_be_nil
-    logger.must_be_instance_of Log4r::Logger
-  end
-
-  it 'should set logger level depending on the quiet setting' do
-    # rubocop : disable Lint/UselessAssignment
-    parser = DocParser::Parser.new(quiet: true)
-    logger = Log4r::Logger['docparser']
-    old_output = logger.outputters.pop
-    logger.level.must_equal Log4r::ERROR
-    parser = DocParser::Parser.new(quiet: false)
-    logger.level.must_equal Log4r::INFO
-    parser = DocParser::Parser.new
-    logger.level.must_equal Log4r::INFO
-    logger.outputters.push old_output
-    # rubocop : enable Lint/UselessAssignment
   end
 
   it 'should only process the files in range' do
