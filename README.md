@@ -1,6 +1,6 @@
 # DocParser
 
-[![Gem Version](http://img.shields.io/gem/v/docparser.svg)](http://badge.fury.io/rb/docparser) ![Build status](https://github.com/jurriaan/docparser/workflows/.github/workflows/ruby.yml/badge.svg)
+[![Gem Version](http://img.shields.io/gem/v/docparser.svg)](http://badge.fury.io/rb/docparser) ![Build status](https://github.com/jurriaan/docparser/workflows/CI/badge.svg)
 
 
 DocParser is a web scraping/screen scraping tool.
