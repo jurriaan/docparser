@@ -26,6 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'parallel', '~> 1.10'
 
   spec.add_development_dependency 'github-markup'
-  spec.add_development_dependency 'kramdown', '~> 2.1.0'
+  spec.add_development_dependency 'kramdown', '~> 2.2.1'
   spec.add_development_dependency 'yard'
 end
